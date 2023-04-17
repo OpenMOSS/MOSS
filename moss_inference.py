@@ -208,7 +208,6 @@ class Inference:
         regulation_start: int = 512,
         length_penalty: float = 1,
         max_time: int = 60,
-        extra_ignored_tokens: Optional[List[List[int]]] = None,
     ) -> torch.Tensor:
         """
         Performs a streaming top-k search using the given parameters.
@@ -224,7 +223,6 @@ class Inference:
             regulation_start (int, optional): The number of iterations after which regulation starts. Defaults to 512.
             length_penalty (float, optional): The length penalty factor. Defaults to 1.
             max_time (int, optional): The maximum allowed time in seconds. Defaults to 60.
-            extra_ignored_tokens (Optional[List[List[int]]], optional): The list of extra ignored tokens. Defaults to None.
 
         Returns:
             torch.Tensor: The generated output IDs tensor.
