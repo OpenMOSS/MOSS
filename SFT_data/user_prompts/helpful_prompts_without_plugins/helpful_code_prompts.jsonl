@@ -1,0 +1,100 @@
+{"user_prompt": "请帮我使用Python实现一个多层神经网络"}
+{"user_prompt": "Write a function in Python that takes an integer as input and returns the factorial of the number."}
+{"user_prompt": "利用MySQL语句来更新表中的数据"}
+{"user_prompt": "Write a program using JavaScript to reverse a string without using any built-in functions."}
+{"user_prompt": "Construct a loop in Java to print out every even number from 1 to 100."}
+{"user_prompt": "使用PHP语言实现将字符串中的所有小写字母改为大写字母"}
+{"user_prompt": "Describe the steps needed to generate a bar plot using Matplotlib."}
+{"user_prompt": "Debug existing code written in C++ for a computer graphics project"}
+{"user_prompt": "写一段MySQL命令，显示表中最大和最小的值"}
+{"user_prompt": "用PHP来解决请求/响应问题"}
+{"user_prompt": "利用JavaScript实现二叉树的前序遍历算法。"}
+{"user_prompt": "Can you provide code examples of how to implement a Binary Search Tree in Python?"}
+{"user_prompt": "Create a SQL query to find the average age of users in a database."}
+{"user_prompt": "用C语言编写一个函数，用于实现数组排序"}
+{"user_prompt": "用C语言编写一个函数，它能够将字符串转换为小写"}
+{"user_prompt": "如何用Python实现一个包含堆栈功能的队列？"}
+{"user_prompt": "Write a Python program to check if a given key exists in a dictionary."}
+{"user_prompt": "用 Python 编写一段代码来对链表进行排序"}
+{"user_prompt": "写一个JavaScript代码片段，实现将一个字符串以及颠倒的方式显示"}
+{"user_prompt": "如何在JavaScript中实现XML解析？"}
+{"user_prompt": "How do I run a Node.js application from the command line?"}
+{"user_prompt": "Build a web application in Java that reads and writes data to an external JSON file."}
+{"user_prompt": "Write a JavaScript function to generate an array of all possible combinations of characters in the given string."}
+{"user_prompt": "用C语言实现交换两个整数值的函数"}
+{"user_prompt": "Write a JavaScript function to sort an array of objects by its property"}
+{"user_prompt": "写一段代码读取csv文件"}
+{"user_prompt": "Develop a method in PHP to calculate the mean, median and mode of a given set of numbers."}
+{"user_prompt": "如何使用JavaScript分析XML文件？"}
+{"user_prompt": "Outline the differences between server-side and client-side scripting"}
+{"user_prompt": "Generate an HTML page using only JavaScript"}
+{"user_prompt": "用JavaScript创造一个字符串处理函数"}
+{"user_prompt": "Create a MySQL query to select all records from a table sorted by one column in descending order."}
+{"user_prompt": "用Python实现一段代码，将数字123456789转换成字符串“One Million Two Hundred Thirty Four Thousand Five Hundred Sixty Seven”"}
+{"user_prompt": "Create a function in JavaScript to calculate the sum of all numbers between 1 and 10."}
+{"user_prompt": "Explain what Big O notation is and provide examples of its use"}
+{"user_prompt": "Use Python and Pandas to calculate the mean, median and mode of a given data set."}
+{"user_prompt": "使用JavaScript开发浏览器游戏"}
+{"user_prompt": "Design an algorithm to reverse a string without using built-in methods"}
+{"user_prompt": "使用C++编写一个函数，可以将字符串的大写转换成小写"}
+{"user_prompt": "使用JavaScript编写一个函数，以二叉树形式显示文件夹中的所有文件和文件夹"}
+{"user_prompt": "Explain how to use a for-loop in Java"}
+{"user_prompt": "请用Java实现一个快速搜索功能"}
+{"user_prompt": "使用C#语言编写一个函数，用于将字符串中的大小写字母进行转换"}
+{"user_prompt": "Write a program in Python to sort an array of numbers using the insertion sorting algorithm."}
+{"user_prompt": "Write a function in C++ that prints out all of the permutations of an array of integers"}
+{"user_prompt": "Construct a Java program to generate all possible permutations of a given string"}
+{"user_prompt": "Write a Python script to calculate the sum of all numbers from 1 to 100."}
+{"user_prompt": "帮我们找出这段代码中可能会导致性能问题的地方"}
+{"user_prompt": "怎么在HTML里面创建一个可以执行JS函数的按钮？"}
+{"user_prompt": "使用Python代码实现一个可以判断一个字符串中各个字母出现的频率的函数"}
+{"user_prompt": "使用Java实现一个函数，将二分搜索树转换成有序的双向链表"}
+{"user_prompt": "Write a function that checks if a given number is a prime number"}
+{"user_prompt": "Implement a binary search algorithm in JavaScript to find the index of an element in a given sorted array."}
+{"user_prompt": "Create a function that takes two strings and returns true if the first string is a substring of the second string."}
+{"user_prompt": "Create a SQL query to find all records in a table ordered by date."}
+{"user_prompt": "使用JavaScript编写一个函数来求阶乘"}
+{"user_prompt": "使用JavaScript实现多维数组的深度拷贝"}
+{"user_prompt": "用JavaScript实现一个函数来检测字符串中的回文"}
+{"user_prompt": "Use Javascript to find the maximum number in an array"}
+{"user_prompt": "使用Perl编写一个函数，将字符串中的单词反转"}
+{"user_prompt": "在 Java 中实现递归函数"}
+{"user_prompt": "Write a code snippet that sorts a list of strings alphabetically"}
+{"user_prompt": "Modify an existing C++ program to improve its performance."}
+{"user_prompt": "Produce a code snippet to check if a number is prime or not"}
+{"user_prompt": "使用 Javascript 构建一个可以将日期格式化成不同形式的函数"}
+{"user_prompt": "使用C#来创建表单验证"}
+{"user_prompt": "请用C#语言实现从一个字符串中提取所有数字"}
+{"user_prompt": "Demonstrate how to set up a MongoDB database on an AWS server."}
+{"user_prompt": "使用JavaScript对给定的数组进行降序排序"}
+{"user_prompt": "我如何用Python计算一个数字列表的平均值"}
+{"user_prompt": "Generate a random password using Python with at least 8 characters, including symbols, numbers and upper/lowercase letters."}
+{"user_prompt": "Create a new class in Java that implements the Comparable interface."}
+{"user_prompt": "How can I structure my HTML code for better accessibility?"}
+{"user_prompt": "What are the benefits of using React Native for mobile app development?"}
+{"user_prompt": "Use Python to implement a quick sort algorithm."}
+{"user_prompt": "Write code to sort a list of objects by their properties"}
+{"user_prompt": "用JavaScript编写代码来生成随机数"}
+{"user_prompt": "用Python编写一个函数来计算多个字符串的最长共同前缀"}
+{"user_prompt": "Write a program in Python to count the number of vowels in a string."}
+{"user_prompt": "Develop a SQL query to join three tables and retrieve specific data."}
+{"user_prompt": "说明如何使用HTML5的canvas元素绘制图像"}
+{"user_prompt": "用Java语言实现树的遍历"}
+{"user_prompt": "Generate HTML5 markup for a responsive navigation bar"}
+{"user_prompt": "编写一个SQL查询，以将表中的所有唯一值聚合成单个结果"}
+{"user_prompt": "Use JavaScript to create a function that converts temperature from Celsius to Fahrenheit."}
+{"user_prompt": "Provide a JavaScript code snippet to calculate the average value of an array of integers."}
+{"user_prompt": "Implement an algorithm that finds the longest palindrome in a given string."}
+{"user_prompt": "在Java中实现一个函数，将十进制数字转化成二进制"}
+{"user_prompt": "Design an algorithm in C++ to traverse a tree using depth-first search"}
+{"user_prompt": "请MOSS帮助我从一个字符串中提取出所有数字，并使用C语言将它们转换为整数"}
+{"user_prompt": "解释在C语言中如何使用循环语句"}
+{"user_prompt": "Create a function to read data from a text file in Python"}
+{"user_prompt": "請說明如何使用PHP实现进程间通信"}
+{"user_prompt": "请使用C++编写一个面向对象的程序，并实现四则运算功能"}
+{"user_prompt": "用JavaScript创建一个动态表格，并能够添加、修改、删除数据。"}
+{"user_prompt": "Create a program that performs linear regression"}
+{"user_prompt": "用Python编写一个函数，实现将一个字符串中的元音字母转换成大写。"}
+{"user_prompt": "如何使用 JavaScript 来实现动态更新 DOM？"}
+{"user_prompt": "Develop a method in Java to generate random numbers between certain range"}
+{"user_prompt": "Explain the benefits of using a function over repeating code."}
