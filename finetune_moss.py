@@ -14,7 +14,6 @@ from torch.utils.tensorboard import SummaryWriter
 from accelerate import Accelerator, DeepSpeedPlugin
 from transformers import set_seed, get_cosine_schedule_with_warmup
 
-from metrics.sft_metrics import SFTMetric
 from models.modeling_moss import MossForCausalLM
 from models.tokenization_moss import MossTokenizer
 
