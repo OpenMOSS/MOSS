@@ -77,21 +77,6 @@ class Inference:
         self.result_stopwords = torch.LongTensor([self.tokenizer.convert_tokens_to_ids("<eor>")])
         self.moss_stopwords = torch.LongTensor([self.tokenizer.convert_tokens_to_ids("<eom>")])
 
-        # for clean repetition penalty
-        hm_pre = "<|Human|>:"
-        inn_pre = "<|Inner Thoughts|>:"
-        comm_pre = "<|Commands|>:"
-        tool_pre = "<|Results|>:"
-        moss_pre = "<|MOSS|>:"
-        all_pre = [hm_pre,inn_pre, comm_pre, tool_pre, moss_pre]
-        all_pre_token = [self.tokenizer.convert_ids_to_tokens(self.tokenizer(p).input_ids) for p in all_pre]
-        all_pre_id = [set(self.tokenizer.convert_tokens_to_ids(t)) for t in all_pre_token]
-
-        all_special_ids = set(self.tokenizer.all_special_ids)
-
-        ignored_tokens = all_pre_id[0].union(*all_pre_id[1:]).union(all_special_ids)
-        self.ignored_tokens = torch.LongTensor(list(ignored_tokens))
-
     def Init_Model_Parallelism(raw_model_dir: str, device_map: Union[str, List[int]] = "auto") -> AutoModelForCausalLM:
         """
         Initializes model parallelism for the given model and device map.
@@ -250,18 +235,18 @@ class Inference:
             else: 
                 logits = logits[:, -1, :]
 
-            logits = logits / temperature
 
             if repetition_penalty > 1:
                 score = logits.gather(1, input_ids)
                 # if score < 0 then repetition penalty has to be multiplied to reduce the previous token probability
                 # just gather the histroy token from input_ids, preprocess then scatter back
                 # here we apply extra work to exclude special token
-                is_special_token = torch.isin(input_ids, self.ignored_tokens.to(input_ids.device))
 
-                score = score.where(is_special_token, torch.where(score < 0, score * repetition_penalty, score / repetition_penalty))
+                score = score.where(score, torch.where(score < 0, score * repetition_penalty, score / repetition_penalty))
 
                 logits.scatter_(1, input_ids, score)
+
+            logits = logits / temperature
 
             filtered_logits = self.top_k_top_p_filtering(logits, top_k, top_p)
             probabilities = torch.softmax(filtered_logits, dim=-1)
@@ -275,11 +260,6 @@ class Inference:
 
             # update extra_ignored_tokens
             new_generated_id_cpu = new_generated_id.cpu()
-
-            if extra_ignored_tokens:
-                for bsi in range(self.bsz):
-                    if extra_ignored_tokens[bsi]:
-                        extra_ignored_tokens[bsi] = [ x for x in extra_ignored_tokens[bsi] if x != new_generated_id_cpu[bsi].squeeze().tolist() ]
 
             input_ids, attention_mask = torch.cat([input_ids, new_generated_id], dim=1), torch.cat([attention_mask, torch.ones((self.bsz, 1), device=attention_mask.device, dtype=attention_mask.dtype)], dim=1)
 
