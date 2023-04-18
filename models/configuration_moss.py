@@ -1,12 +1,7 @@
 """ Moss model configuration"""
 
-from collections import OrderedDict
-from typing import Any, List, Mapping, Optional
-
 from transformers.utils import logging
 from transformers.configuration_utils import PretrainedConfig
-from transformers.onnx import OnnxConfigWithPast, PatchingSpec
-from transformers import PreTrainedTokenizer, TensorType, is_torch_available
 
 
 logger = logging.get_logger(__name__)
@@ -79,7 +74,7 @@ class MossConfig(PretrainedConfig):
 
     def __init__(
         self,
-        vocab_size=50400,
+        vocab_size=107008,
         n_positions=2048,
         n_ctx=2048,
         n_embd=4096,
@@ -94,8 +89,8 @@ class MossConfig(PretrainedConfig):
         layer_norm_epsilon=1e-5,
         initializer_range=0.02,
         use_cache=True,
-        bos_token_id=50256,
-        eos_token_id=50256,
+        bos_token_id=106028,
+        eos_token_id=106068,
         tie_word_embeddings=False,
         **kwargs,
     ):

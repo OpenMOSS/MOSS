@@ -136,7 +136,7 @@ class MossTokenizer(PreTrainedTokenizer):
         errors="replace",
         unk_token="<|endoftext|>",
         bos_token="<|endoftext|>",
-        eos_token="<|endoftext|>",
+        eos_token="<eom>",
         pad_token=None,
         add_prefix_space=False,
         add_bos_token=False,
