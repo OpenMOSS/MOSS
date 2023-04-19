@@ -336,7 +336,7 @@ class Inference:
 
 if __name__ == "__main__":
     # Create an Inference instance with the specified model directory.
-    infer = Inference("/remote-home/share/xyliu/sft/merged-no-inner-done")
+    infer = Inference("your_moss_model_dir")
 
     # Define a test case string.
     test_case = "<|Human|>: Hello MOOS, Can you print 'Hello World' in C++ ? <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
