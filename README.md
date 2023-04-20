@@ -18,7 +18,7 @@
 
 ### 模型
 
-- [**moss-moon-003-base**](https://huggingface.co/fnlp/moss-moon-003-base): MOSS-003基座模型，在高质量中英文语料上自监督预训练得到，预训练语料包含约700B单词，计算量约6.67x10^22^次浮点数运算。
+- [**moss-moon-003-base**](https://huggingface.co/fnlp/moss-moon-003-base): MOSS-003基座模型，在高质量中英文语料上自监督预训练得到，预训练语料包含约700B单词，计算量约6.67x10<sup>22</sup>次浮点数运算。
 - [**moss-moon-003-sft**](https://huggingface.co/fnlp/moss-moon-003-sft): 基座模型在约110万多轮对话数据上微调得到，具有指令遵循能力、多轮对话能力、规避有害请求能力。
 - [**moss-moon-003-sft-plugin**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin): 基座模型在约110万多轮对话数据和约30万插件增强的多轮对话数据上微调得到，在`moss-moon-003-sft`基础上还具备使用搜索引擎、文生图、计算器、解方程等四种插件的能力。
 - **moss-moon-003-pm**: 在基于`moss-moon-003-sft`收集到的偏好反馈数据上训练得到的偏好模型，将在近期开源。
