@@ -154,7 +154,7 @@ class Inference:
         if not paras:
             paras = self.default_paras
 
-        outputs = self.streaming_topk_search(
+        outputs = self.sample(
             input_ids,
             attention_mask,
             temperature=paras["temperature"],
@@ -185,7 +185,7 @@ class Inference:
         """
         return preds_i[len(self.prefix):]
 
-    def streaming_topk_search(
+    def sample(
         self,
         input_ids: torch.Tensor,
         attention_mask: torch.Tensor,
