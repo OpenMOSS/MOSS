@@ -1,28 +1,33 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+os.environ["CUDA_VISIBLE_DEVICES"] = "5,6"
 import torch
 import warnings
 import platform
 
 from transformers.generation.utils import logger
 from accelerate import load_checkpoint_and_dispatch, init_empty_weights
-from transformers import AutoTokenizer, AutoModelForCausalLM, CodeGenConfig
+try:
+    from transformers import MossForCausalLM, MossTokenizer, MossConfig
+except (ImportError, ModuleNotFoundError):
+    from models.modeling_moss import MossForCausalLM
+    from models.tokenization_moss import MossTokenizer
+    from models.configuration_moss import MossConfig
 
 logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
-model_path = "/remote-home/share/xyliu/sft/merged-no-inner-done"
+model_path = "your-moss-model-path"
 
-config = CodeGenConfig.from_pretrained(model_path)
-tokenizer = AutoTokenizer.from_pretrained(model_path)
+config = MossConfig.from_pretrained(model_path)
+tokenizer = MossTokenizer.from_pretrained(model_path)
 
 with init_empty_weights():
-    raw_model = AutoModelForCausalLM.from_config(config, torch_dtype=torch.float16)
+    raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
 raw_model.tie_weights()
 model = load_checkpoint_and_dispatch(
-    raw_model, model_path, device_map="auto", no_split_module_classes=["CodeGenBlock"], dtype=torch.float16
+    raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
 )
-    
+
 def clear():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
     

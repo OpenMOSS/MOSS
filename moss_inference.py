@@ -5,9 +5,13 @@ import re
 from typing import Union, List, Tuple, Optional, Dict
 
 import torch
-from transformers import AutoTokenizer, AutoConfig, AutoModelForCausalLM, CodeGenForCausalLM
-from transformers import AutoConfig, AutoModelForCausalLM
-from transformers import BaseModelOutputWithPast
+try:
+    from transformers import MossForCausalLM, MossTokenizer, MossConfig
+except (ImportError, ModuleNotFoundError):
+    from models.modeling_moss import MossForCausalLM
+    from models.tokenization_moss import MossTokenizer
+    from models.configuration_moss import MossConfig
+from transformers.modeling_outputs import BaseModelOutputWithPast
 from accelerate import init_empty_weights
 from accelerate import load_checkpoint_and_dispatch
 
@@ -37,32 +41,32 @@ DEFAULT_PARAS = {
 class Inference:
     def __init__(
         self,
-        model: Optional[CodeGenForCausalLM] = None,
+        model: Optional[MossForCausalLM] = None,
         model_dir: Optional[str] = None,
         parallelism: bool = True,
         device_map: Optional[Union[str, List[int]]] = None,
     ) -> None:
         """
-        Initializes the CodeGenModel with a given model or loads a model from the specified directory.
+        Initializes the MossModel with a given model or loads a model from the specified directory.
 
         Args:
-            model (Optional[CodeGenForCausalLM], optional): An existing model to use. Defaults to None.
+            model (Optional[MossForCausalLM], optional): An existing model to use. Defaults to None.
             model_dir (Optional[str], optional): The directory containing the pre-trained model files. Defaults to None.
             parallelism (bool, optional): Whether to initialize model parallelism. Defaults to True.
             device_map (Optional[Union[str, List[int]]], optional): The list of GPU device indices for model parallelism or "auto" to use the default device map. Defaults to None.
         """
-        self.model_dir = "/remote-home/share/xyliu/sft/merged-no-inner-done" if not model_dir else model_dir
+        self.model_dir = "your-moss-model-path" if not model_dir else model_dir
 
         if model:
             self.model = model
         else:
             self.model = (
-                self.Init_Model_Parallelism(self.model_dir, device_map=device_map)
+                self.Init_Model_Parallelism(raw_model_dir=self.model_dir, device_map=device_map)
                 if parallelism
-                else CodeGenForCausalLM.from_pretrained(self.model_dir)
+                else MossForCausalLM.from_pretrained(self.model_dir)
             )
 
-        self.tokenizer = AutoTokenizer.from_pretrained(self.model_dir)
+        self.tokenizer = MossTokenizer.from_pretrained(self.model_dir)
 
         self.prefix = PREFIX
         self.default_paras = DEFAULT_PARAS
@@ -77,7 +81,7 @@ class Inference:
         self.result_stopwords = torch.LongTensor([self.tokenizer.convert_tokens_to_ids("<eor>")])
         self.moss_stopwords = torch.LongTensor([self.tokenizer.convert_tokens_to_ids("<eom>")])
 
-    def Init_Model_Parallelism(raw_model_dir: str, device_map: Union[str, List[int]] = "auto") -> AutoModelForCausalLM:
+    def Init_Model_Parallelism(self, raw_model_dir: str, device_map: Union[str, List[int]] = "auto") -> MossForCausalLM:
         """
         Initializes model parallelism for the given model and device map.
 
@@ -86,7 +90,7 @@ class Inference:
             device_map (Union[str, List[int]], optional): The list of GPU device indices for model parallelism, or "auto" to use the default device map. Defaults to "auto".
 
         Returns:
-            AutoModelForCausalLM: The model with model parallelism initialized.
+            MossForCausalLM: The model with model parallelism initialized.
 
         References:
             https://github1s.com/huggingface/accelerate/blob/HEAD/src/accelerate/big_modeling.py#L407
@@ -95,11 +99,11 @@ class Inference:
         print("Model Parallelism Devices: ", torch.cuda.device_count())
 
         # Load model configuration from the raw_model_dir
-        config = AutoConfig.from_pretrained(raw_model_dir)
+        config = MossConfig.from_pretrained(raw_model_dir)
 
         # Initialize an empty model with the loaded configuration and set the data type to float16
         with init_empty_weights():
-            raw_model = AutoModelForCausalLM.from_config(config, torch_dtype=torch.float16)
+            raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
 
         # Tie the model's weights
         raw_model.tie_weights()
@@ -109,7 +113,7 @@ class Inference:
             raw_model,
             raw_model_dir,
             device_map="auto" if not device_map else device_map,
-            no_split_module_classes=["CodeGenBlock"],
+            no_split_module_classes=["MossBlock"],
             dtype=torch.float16
         )
 
@@ -242,7 +246,7 @@ class Inference:
                 # just gather the histroy token from input_ids, preprocess then scatter back
                 # here we apply extra work to exclude special token
 
-                score = score.where(score, torch.where(score < 0, score * repetition_penalty, score / repetition_penalty))
+                score = torch.where(score < 0, score * repetition_penalty, score / repetition_penalty)
 
                 logits.scatter_(1, input_ids, score)
 
@@ -335,8 +339,11 @@ class Inference:
     
 
 if __name__ == "__main__":
+    import os
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
+    
     # Create an Inference instance with the specified model directory.
-    infer = Inference("your_moss_model_dir")
+    infer = Inference(model_dir="your-moss-model-path", device_map="auto")
 
     # Define a test case string.
     test_case = "<|Human|>: Hello MOOS, Can you print 'Hello World' in C++ ? <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
