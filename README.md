@@ -38,6 +38,13 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 **局限性**：由于模型参数量较小和自回归生成范式，MOSS仍然可能生成包含事实性错误的误导性回复或包含偏见/歧视的有害内容，请谨慎鉴别和使用MOSS生成的内容。
 
+**MOSS用例**：
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_search.gif)
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_harmless.png)
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_solver.png)
 
 
 ## 本地部署
@@ -65,7 +72,13 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.1, max_new_tokens=128)
 >>> response = tokenizer.decode(outputs[0])
 >>> print(response[len(query)+2:])
-
+好的，以下是我为您推荐的五部科幻电影：
+1. 《星际穿越》
+2. 《银翼杀手2049》
+3. 《黑客帝国》
+4. 《异形之花》
+5. 《火星救援》
+6. 希望这些电影能够满足您的观影需求。<eom>
 ```
 
 若您使用A100或A800，您可以单卡运行`moss-moon-003-sft`，使用FP16精度时约占用30GB显存；若您使用更小显存的显卡（如NVIDIA 3090），您可以参考`moss_inference.py`进行模型并行推理；我们将在近期发布INT4/8量化模型以支持MOSS低成本部署。
@@ -75,3 +88,4 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 ## 开源协议
 
 本项目所含代码采用[Apache 2.0](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/MOSS_agreement_form.pdf)并发送至robot@fudan.edu.cn取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
+
