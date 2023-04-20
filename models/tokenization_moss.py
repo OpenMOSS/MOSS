@@ -28,21 +28,21 @@ VOCAB_FILES_NAMES = {
 
 PRETRAINED_VOCAB_FILES_MAP = {
     "vocab_file": {
-        "fnlp/moss-16B-base": "https://huggingface.co/fnlp/moss-16B-base/resolve/main/vocab.json",
-        "fnlp/moss-16B-sft": "https://huggingface.co/fnlp/moss-16B-sft/resolve/main/vocab.json",
-        "fnlp/moss-16B-sft-plugin": "https://huggingface.co/fnlp/moss-16B-sft-plugin/resolve/main/vocab.json",
+        "fnlp/moss-moon-003-base": "https://huggingface.co/fnlp/moss-moon-003-base/resolve/main/vocab.json",
+        "fnlp/moss-moon-003-sft": "https://huggingface.co/fnlp/moss-moon-003-sft/resolve/main/vocab.json",
+        "fnlp/moss-moon-003-sft-plugin": "https://huggingface.co/fnlp/moss-moon-003-sft-plugin/resolve/main/vocab.json",
     },
     "merges_file": {
-        "fnlp/moss-16B-base": "https://huggingface.co/fnlp/moss-16B-base/resolve/main/merge.txt",
-        "fnlp/moss-16B-sft": "https://huggingface.co/fnlp/moss-16B-sft/resolve/main/merge.txt",
-        "fnlp/moss-16B-sft-plugin": "https://huggingface.co/fnlp/moss-16B-sft-plugin/resolve/main/merge.txt",
+        "fnlp/moss-moon-003-base": "https://huggingface.co/fnlp/moss-moon-003-base/resolve/main/merge.txt",
+        "fnlp/moss-moon-003-sft": "https://huggingface.co/fnlp/moss-moon-003-sft/resolve/main/merge.txt",
+        "fnlp/moss-moon-003-sft-plugin": "https://huggingface.co/fnlp/moss-moon-003-sft-plugin/resolve/main/merge.txt",
     },
 }
 
 PRETRAINED_POSITIONAL_EMBEDDINGS_SIZES = {
-    "fnlp/moss-16B-base": 2048,
-    "fnlp/moss-16B-sft": 2048,
-    "fnlp/moss-16B-sft-plugin": 2048,
+    "fnlp/moss-moon-003-base": 2048,
+    "fnlp/moss-moon-003-sft": 2048,
+    "fnlp/moss-moon-003-sft-plugin": 2048,
 }
 
 
