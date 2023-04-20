@@ -1,11 +1,3 @@
----
-language:
-- zh
-- en
-tags:
-- moss
-- llm
----
 # MOSS
 <p align="center" width="100%">
 <a href="https://txsun1997.github.io/blogs/moss.html" target="_blank"><img src="https://txsun1997.github.io/images/moss.png" alt="MOSS" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
