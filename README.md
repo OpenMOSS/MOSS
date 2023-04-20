@@ -28,8 +28,8 @@
 ### 数据
 
 - [**moss-002-sft-data**](https://huggingface.co/datasets/fnlp/moss-002-sft-data): MOSS-002所使用的多轮对话数据，覆盖有用性、忠实性、无害性三个层面，包含由`text-davinci-003`生成的约57万条英文对话和59万条中文对话。
-- [**moss-003-sft-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins): `moss-moon-003-sft`所使用的多轮对话数据，基于MOSS-002内测阶段采集的约10万用户输入数据和`gpt-3.5-turbo`构造而成，相比`moss-002-sft-data`，`moss-003-sft-data`更加符合真实用户意图分布，包含更细粒度的有用性类别标记、更广泛的无害性数据和更长对话轮数，约含110万条对话数据，将在近期开源。
-- [**moss-003-sft-plugin-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins): `moss-moon-003-sft-plugin`所使用的插件增强的多轮对话数据，包含支持搜索引擎、文生图、计算器、解方程等四个插件在内的约30万条多轮对话数据，将在近期开源。
+- [**moss-003-sft-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins): `moss-moon-003-sft`所使用的多轮对话数据，基于MOSS-002内测阶段采集的约10万用户输入数据和`gpt-3.5-turbo`构造而成，相比`moss-002-sft-data`，`moss-003-sft-data`更加符合真实用户意图分布，包含更细粒度的有用性类别标记、更广泛的无害性数据和更长对话轮数，约含110万条对话数据。目前仅开源少量示例数据，完整数据将在近期开源。
+- [**moss-003-sft-plugin-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins): `moss-moon-003-sft-plugin`所使用的插件增强的多轮对话数据，包含支持搜索引擎、文生图、计算器、解方程等四个插件在内的约30万条多轮对话数据。目前仅开源少量示例数据，完整数据将在近期开源。
 - **moss-003-pm-data**: `moss-moon-003-pm`所使用的偏好数据，包含在约18万额外对话上下文数据及使用`moss-moon-003-sft`所产生的回复数据上构造得到的偏好对比数据，将在近期开源。
 
 ## 介绍
@@ -38,6 +38,13 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 **局限性**：由于模型参数量较小和自回归生成范式，MOSS仍然可能生成包含事实性错误的误导性回复或包含偏见/歧视的有害内容，请谨慎鉴别和使用MOSS生成的内容。
 
+**MOSS用例**：
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_search.gif)
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_harmless.png)
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_solver.png)
 
 
 ## 本地部署
@@ -65,7 +72,13 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.1, max_new_tokens=128)
 >>> response = tokenizer.decode(outputs[0])
 >>> print(response[len(query)+2:])
-
+好的，以下是我为您推荐的五部科幻电影：
+1. 《星际穿越》
+2. 《银翼杀手2049》
+3. 《黑客帝国》
+4. 《异形之花》
+5. 《火星救援》
+6. 希望这些电影能够满足您的观影需求。<eom>
 ```
 
 若您使用A100或A800，您可以单卡运行`moss-moon-003-sft`，使用FP16精度时约占用30GB显存；若您使用更小显存的显卡（如NVIDIA 3090），您可以参考`moss_inference.py`进行模型并行推理；我们将在近期发布INT4/8量化模型以支持MOSS低成本部署。
