@@ -12,6 +12,7 @@ except (ImportError, ModuleNotFoundError):
     from models.tokenization_moss import MossTokenizer
     from models.configuration_moss import MossConfig
 from transformers.modeling_outputs import BaseModelOutputWithPast
+from huggingface_hub import snapshot_download
 from accelerate import init_empty_weights
 from accelerate import load_checkpoint_and_dispatch
 
@@ -97,6 +98,8 @@ class Inference:
         """
         # Print the number of CUDA devices available
         print("Model Parallelism Devices: ", torch.cuda.device_count())
+        if not os.path.exists(raw_model_dir):
+            raw_model_dir = snapshot_download(raw_model_dir)
 
         # Load model configuration from the raw_model_dir
         config = MossConfig.from_pretrained(raw_model_dir)
