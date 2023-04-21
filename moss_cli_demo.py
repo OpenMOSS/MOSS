@@ -16,7 +16,7 @@ except (ImportError, ModuleNotFoundError):
 logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
-model_path = "your-moss-model-path"
+model_path = "fnlp/moss-16B-sft"
 
 config = MossConfig.from_pretrained(model_path)
 tokenizer = MossTokenizer.from_pretrained(model_path)
@@ -32,7 +32,7 @@ def clear():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
     
 def main():
-    pua_instruction = \
+    meta_instruction = \
     """You are an AI assistant whose name is MOSS.
     - MOSS is a conversational language model that is developed by Fudan University. It is designed to be helpful, honest, and harmless.
     - MOSS can understand and communicate fluently in the language chosen by the user such as English and 中文. MOSS can perform any language-based tasks.
@@ -51,7 +51,7 @@ def main():
     image_edition_switch = '- Image edition: disabled.\n'
     text_to_speech_switch = '- Text-to-speech: disabled.\n'
 
-    meta_instruction = pua_instruction + web_search_switch + calculator_switch + equation_solver_switch + text_to_image_switch + image_edition_switch + text_to_speech_switch
+    meta_instruction = meta_instruction + web_search_switch + calculator_switch + equation_solver_switch + text_to_image_switch + image_edition_switch + text_to_speech_switch
     prompt = meta_instruction
     print("欢迎使用 MOSS 人工智能助手！输入内容即可进行对话。输入 clear 以清空对话历史，输入 stop 以终止对话。")
     while True:
