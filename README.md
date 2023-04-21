@@ -196,3 +196,8 @@ pip install -r requirements.txt
 - [CodeGen](https://arxiv.org/abs/2203.13474): 基座模型在CodeGen初始化基础上进行中文预训练
 - [Mosec](https://github.com/mosecorg/mosec): 模型部署和流式回复支持
 - [Shanghai AI Lab](https://www.shlab.org.cn/): 算力支持
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=OpenLMLab/MOSS&type=Date)](https://star-history.com/#OpenLMLab/MOSS&Date)
+
