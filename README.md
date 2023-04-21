@@ -81,7 +81,55 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 6. 希望这些电影能够满足您的观影需求。<eom>
 ```
 
-若您使用A100或A800，您可以单卡运行`moss-moon-003-sft`，使用FP16精度时约占用30GB显存；若您使用更小显存的显卡（如NVIDIA 3090），您可以参考`moss_inference.py`进行模型并行推理；我们将在近期发布INT4/8量化模型以支持MOSS低成本部署。此外，我们正在整理模型轻量微调和插件模型推理代码及教程，敬请期待：）
+若您使用A100或A800，您可以单卡运行`moss-moon-003-sft`，使用FP16精度时约占用30GB显存；若您使用更小显存的显卡（如NVIDIA 3090），您可以参考`moss_inference.py`进行模型并行推理，下面是一个例子;同时我们将在近期发布INT4/8量化模型以支持MOSS低成本部署。此外，我们正在整理模型轻量微调和插件模型推理代码及教程，敬请期待：）
+
+### 模型并行
+```python
+>>> # 使用三张GPU进行推理
+>>> import os 
+>>> os.environ['CUDA_VISIBLE_DEVICES'] = "0,1,2"
+>>> import torch
+>>> torch.cuda.device_count()
+>>> print("Model Parallelism Devices: ", torch.cuda.device_count())
+>>> config = MossConfig.from_pretrained("fnlp/moss-16B-sft")
+>>> with init_empty_weights():
+        raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
+        raw_model.tie_weights()
+>>> model = load_checkpoint_and_dispatch(
+            raw_model,
+            "fnlp/moss-16B-sft",
+            device_map="auto" if not device_map else device_map,
+            no_split_module_classes=["MossBlock"],
+            dtype=torch.float16
+        )
+>>> # do anyhing you want ...
+```
+
+此外，完整的推理与加载模型代码已在`moss_inference.py`中实现，您可以直接以如下方式使用：
+```python
+>>> from moss_inference import Inference
+>>> infer = Inference(model_dir="fnlp/moss-16B-sft", device_map="auto")
+>>> test_case = "<|Human|>: Hello MOSS, can you write a piece of C++ code that prints out ‘hello, world’?  <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
+>>> res = infer(test_case)
+>>> print(res)
+<|Human|>: Hello MOSS, can you write a piece of C++ code that prints out ‘hello, world’?    <eoh> 
+<|Inner Thoughts|>: None <eot> 
+<|Commands|>: None <eoc> 
+<|Results|>: None <eor> 
+<|MOSS|>: Certainly! Here it goes... 
+
+```c++
+ 
+#include <iostream>
+ 
+     int main() {       // start execution here      
+	        std::cout <<"Hello World!"; // print message using cout object	          		         return 0 ; 			 } 				 
+``` <eom>
+
+```
+此外，您可以在moss_infer_demo.ipynb中自由探索inference的细节和接口。  
+
+
 
 如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请与我们联系，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。
 

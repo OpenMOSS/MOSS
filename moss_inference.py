@@ -344,10 +344,10 @@ if __name__ == "__main__":
     #Default we use model parallelism within 3 GPUs to infer
     
     # Create an Inference instance with the specified model directory.
-    infer = Inference(model_dir="your-moss-model-path", device_map="auto")
+    infer = Inference(model_dir="fnlp/moss-16B-sft", device_map="auto")
 
     # Define a test case string.
-    test_case = "<|Human|>: Hello MOOS, Can you print 'Hello World' in C++ ? <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
+    test_case = "<|Human|>: Hello MOSS, can you write a piece of C++ code that prints out ‘hello, world’? <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
 
     # Generate a response using the Inference instance.
     res = infer(test_case)
