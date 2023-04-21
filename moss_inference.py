@@ -340,7 +340,7 @@ class Inference:
 
 if __name__ == "__main__":
     import os
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "6,7"
     #Default we use model parallelism within 3 GPUs to infer
     
     # Create an Inference instance with the specified model directory.

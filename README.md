@@ -100,7 +100,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 >>> model = load_checkpoint_and_dispatch(
             raw_model,
             "fnlp/moss-16B-sft",
-            device_map="auto" if not device_map else device_map,
+            device_map="auto",
             no_split_module_classes=["MossBlock"],
             dtype=torch.float16
         )
