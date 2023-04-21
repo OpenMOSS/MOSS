@@ -61,7 +61,7 @@ class Inference:
             self.model = model
         else:
             self.model = (
-                self.Init_Model_Parallelism(raw_model_dir=self.model_dir, device_map=device_map)
+                self.Init_Model_Parallelism(raw_model_dir=self.model_dir, device_map=device_map if device_map else "auto")
                 if parallelism
                 else MossForCausalLM.from_pretrained(self.model_dir)
             )
