@@ -105,7 +105,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 >>> import torch
 >>> torch.cuda.device_count()
 >>> print("Model Parallelism Devices: ", torch.cuda.device_count())
->>> config = MossConfig.from_pretrained("fnlp/moss-16B-sft")
+>>> config = MossConfig.from_pretrained("fnlp/moss-moon-003-sft")
 >>> from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 >>> from transformers import MossForCausalLM
 >>> with init_empty_weights():
@@ -113,7 +113,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 >>> raw_model.tie_weights()
 >>> model = load_checkpoint_and_dispatch(
             raw_model,
-            "fnlp/moss-16B-sft",
+            "fnlp/moss-moon-003-sft",
             device_map="auto",
             no_split_module_classes=["MossBlock"],
             dtype=torch.float16
@@ -124,7 +124,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 此外，完整的推理与加载模型代码已在`moss_inference.py`中实现，您可以直接以如下方式使用：
 ```python
 >>> from moss_inference import Inference
->>> infer = Inference(model_dir="fnlp/moss-16B-sft", device_map="auto")
+>>> infer = Inference(model_dir="fnlp/moss-moon-003-sft", device_map="auto")
 >>> test_case = "<|Human|>: Hello MOSS, can you write a piece of C++ code that prints out ‘hello, world’?  <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
 >>> res = infer(test_case)
 >>> print(res)
