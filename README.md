@@ -63,7 +63,15 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 ## 本地部署
 ### 环境依赖
-您可以使用pip安装依赖：`pip install -r requirements.txt`，其中`torch`和`transformers`版本不建议低于推荐版本。
+推荐的Python版本为`3.9.16`。您可以使用pip安装依赖：`pip install -r requirements.txt`，其中`torch`和`transformers`版本不建议低于推荐版本。
+
+或者，您可以使用以下命令创建名为`moss`的conda环境：
+```bash
+# 创建名为 moss 的 conda 环境
+conda env create -f environment.yml
+# 激活 moss 环境
+conda activate moss
+```
 
 ### 使用示例
 
