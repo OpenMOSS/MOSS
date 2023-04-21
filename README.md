@@ -42,9 +42,23 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_search.gif)
 
-![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_harmless.png)
+<details><summary><b>解方程</b></summary>
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_solver.png)
+
+</details>
+
+<details><summary><b>生成图片</b></summary>
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_text2img.png)
+
+</details>
+
+<details><summary><b>无害性</b></summary>
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_harmless.png)
+
+</details>
 
 
 ## 本地部署
@@ -78,7 +92,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 3. 《黑客帝国》
 4. 《异形之花》
 5. 《火星救援》
-6. 希望这些电影能够满足您的观影需求。<eom>
+希望这些电影能够满足您的观影需求。<eom>
 ```
 
 若您使用A100或A800，您可以单卡运行`moss-moon-003-sft`，使用FP16精度时约占用30GB显存；若您使用更小显存的显卡（如NVIDIA 3090），您可以参考`moss_inference.py`进行模型并行推理，下面是一个例子;同时我们将在近期发布INT4/8量化模型以支持MOSS低成本部署。此外，我们正在整理模型轻量微调和插件模型推理代码及教程，敬请期待：）

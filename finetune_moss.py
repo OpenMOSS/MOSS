@@ -1,4 +1,4 @@
-"""Code for moss-16B-sft"""
+"""Code for moss-moon-003-sft"""
 
 import os
 import copy

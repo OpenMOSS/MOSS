@@ -33,9 +33,9 @@ PRETRAINED_VOCAB_FILES_MAP = {
         "fnlp/moss-moon-003-sft-plugin": "https://huggingface.co/fnlp/moss-moon-003-sft-plugin/resolve/main/vocab.json",
     },
     "merges_file": {
-        "fnlp/moss-moon-003-base": "https://huggingface.co/fnlp/moss-moon-003-base/resolve/main/merge.txt",
-        "fnlp/moss-moon-003-sft": "https://huggingface.co/fnlp/moss-moon-003-sft/resolve/main/merge.txt",
-        "fnlp/moss-moon-003-sft-plugin": "https://huggingface.co/fnlp/moss-moon-003-sft-plugin/resolve/main/merge.txt",
+        "fnlp/moss-moon-003-base": "https://huggingface.co/fnlp/moss-moon-003-base/resolve/main/merges.txt",
+        "fnlp/moss-moon-003-sft": "https://huggingface.co/fnlp/moss-moon-003-sft/resolve/main/merges.txt",
+        "fnlp/moss-moon-003-sft-plugin": "https://huggingface.co/fnlp/moss-moon-003-sft-plugin/resolve/main/merges.txt",
     },
 }
 
