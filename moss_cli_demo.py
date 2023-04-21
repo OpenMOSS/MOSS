@@ -1,31 +1,28 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "5,6"
+os.environ["CUDA_VISIBLE_DEVICES"] = "2,4"
 import torch
 import warnings
 import platform
 
 from transformers.generation.utils import logger
-from accelerate import load_checkpoint_and_dispatch, init_empty_weights
+from accelerate import dispatch_model, infer_auto_device_map
 try:
-    from transformers import MossForCausalLM, MossTokenizer, MossConfig
+    from transformers import MossForCausalLM, MossTokenizer
 except (ImportError, ModuleNotFoundError):
     from models.modeling_moss import MossForCausalLM
     from models.tokenization_moss import MossTokenizer
-    from models.configuration_moss import MossConfig
 
 logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
-model_path = "fnlp/moss-16B-sft"
+model_path = "fnlp/moss-moon-003-sft"
 
-config = MossConfig.from_pretrained(model_path)
+print("Waiting for all devices to be ready, it may take a few minutes...")
 tokenizer = MossTokenizer.from_pretrained(model_path)
-
-with init_empty_weights():
-    raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
-raw_model.tie_weights()
-model = load_checkpoint_and_dispatch(
-    raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
+cpu_model = MossForCausalLM.from_pretrained(model_path, torch_dtype=torch.float16)
+device_map = infer_auto_device_map(cpu_model, no_split_module_classes=["MossBlock"])
+model = dispatch_model(
+    cpu_model, device_map=device_map
 )
 
 def clear():
