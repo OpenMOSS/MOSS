@@ -341,6 +341,7 @@ class Inference:
 if __name__ == "__main__":
     import os
     os.environ["CUDA_VISIBLE_DEVICES"] = "0,1,2"
+    #Default we use model parallelism within 3 GPUs to infer
     
     # Create an Inference instance with the specified model directory.
     infer = Inference(model_dir="your-moss-model-path", device_map="auto")
