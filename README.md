@@ -153,3 +153,9 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 ## 开源协议
 
 本项目所含代码采用[Apache 2.0](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/MOSS_agreement_form.pdf)并发送至robot@fudan.edu.cn取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
+
+## 致谢
+
+- [CodeGen](https://arxiv.org/abs/2203.13474): 基座模型在CodeGen初始化基础上进行中文预训练
+- [Mosec](https://github.com/mosecorg/mosec): 模型部署和流式回复支持
+- [Shanghai AI Lab](https://www.shlab.org.cn/): 算力支持
