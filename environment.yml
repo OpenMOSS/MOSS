@@ -1,4 +1,4 @@
-name: moss2
+name: moss
 channels:
   - defaults
 dependencies:
