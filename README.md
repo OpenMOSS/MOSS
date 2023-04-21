@@ -14,6 +14,8 @@
   - [数据](#数据)
 - [介绍](#介绍)
 - [本地部署](#本地部署)
+  - [下载安装](#下载安装)
+  - [使用示例](#使用示例)
 - [开源协议](#开源协议)
 
 ## 开源清单
@@ -104,7 +106,7 @@ pip install -r requirements.txt
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.1, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-您好！我是MOSS，有什么我可以帮助您的吗？ <eom>
+您好！我是MOSS，有什么我可以帮助您的吗？ 
 >>> query = response + "\n<|Human|>: 推荐五部科幻电影<eoh>\n<|MOSS|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.1, max_new_tokens=256)
@@ -116,7 +118,7 @@ pip install -r requirements.txt
 3. 《黑客帝国》
 4. 《异形之花》
 5. 《火星救援》
-希望这些电影能够满足您的观影需求。<eom>
+希望这些电影能够满足您的观影需求。
 ```
 
 #### 多卡部署（适用于两张或以上NVIDIA 3090）
