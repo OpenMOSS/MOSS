@@ -343,13 +343,13 @@ class Inference:
 
 if __name__ == "__main__":
     import os
-    os.environ["CUDA_VISIBLE_DEVICES"] = "2,4"
+    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
     
     # Create an Inference instance with the specified model directory.
     infer = Inference(model_dir="fnlp/moss-moon-003-sft", device_map="auto")
 
     # Define a test case string.
-    test_case = "<|Human|>: Hello MOOS, Can you print 'Hello World' in C++ ? <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
+    test_case = "<|Human|>: Hello MOSS<eoh>\n<|MOSS|>:"
 
     # Generate a response using the Inference instance.
     res = infer(test_case)

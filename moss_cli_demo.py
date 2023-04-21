@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "2,4"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
 import torch
 import warnings
 import platform
@@ -72,11 +72,12 @@ def main():
             outputs = model.generate(
                 inputs.input_ids.cuda(), 
                 attention_mask=inputs.attention_mask.cuda(), 
-                max_length=4096, 
+                max_length=2048, 
                 do_sample=True, 
-                top_k=50, 
-                top_p=0.95, 
-                temperature=0.7, 
+                top_k=40, 
+                top_p=0.8, 
+                temperature=0.7,
+                repetition_penalty=1.1,
                 num_return_sequences=1, 
                 eos_token_id=106068,
                 pad_token_id=tokenizer.pad_token_id)
