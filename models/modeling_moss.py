@@ -22,14 +22,14 @@ from .configuration_moss import MossConfig
 
 logger = logging.get_logger(__name__)
 
-_CHECKPOINT_FOR_DOC = "fnlp/moss-16B-base"
+_CHECKPOINT_FOR_DOC = "fnlp/moss-moon-003-base"
 _CONFIG_FOR_DOC = "MossConfig"
 
 
 MOSS_PRETRAINED_MODEL_ARCHIVE_LIST = [
-    "fnlp/moss-16B-base",
-    "fnlp/moss-16B-sft",
-    "fnlp/moss-16B-sft-plugin",
+    "fnlp/moss-moon-003-base",
+    "fnlp/moss-moon-003-sft",
+    "fnlp/moss-moon-003-sft-plugin",
 ]
 
 
