@@ -2,9 +2,10 @@
 <p align="center" width="100%">
 <a href="https://txsun1997.github.io/blogs/moss.html" target="_blank"><img src="https://txsun1997.github.io/images/moss.png" alt="MOSS" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
 </p>
-![](https://img.shields.io/badge/Code_License-Apache_2.0-brightgreen)
-![](https://img.shields.io/badge/Data_License-CC_BY--NC_4.0-blue)
-![](https://img.shields.io/badge/Model_License-GNU_AGPL_3.0-red)
+
+[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-brightgreen.svg)](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)
+[![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)
+[![Model License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)
 
 ## 目录
 
