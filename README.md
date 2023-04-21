@@ -16,9 +16,10 @@
 - [本地部署](#本地部署)
   - [下载安装](#下载安装)
   - [使用示例](#使用示例)
+- [友情链接](#友情链接)
 - [开源协议](#开源协议)
 
-## 开源清单
+## :spiral_notepad: 开源清单
 
 ### 模型
 
@@ -36,7 +37,7 @@
 - [**moss-003-sft-plugin-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins): `moss-moon-003-sft-plugin`所使用的插件增强的多轮对话数据，包含支持搜索引擎、文生图、计算器、解方程等四个插件在内的约30万条多轮对话数据。目前仅开源少量示例数据，完整数据将在近期开源。
 - **moss-003-pm-data**: `moss-moon-003-pm`所使用的偏好数据，包含在约18万额外对话上下文数据及使用`moss-moon-003-sft`所产生的回复数据上构造得到的偏好对比数据，将在近期开源。
 
-## 介绍
+## :fountain_pen: 介绍
 
 MOSS是一个支持中英双语和多种插件的开源对话语言模型，`moss-moon`系列模型具有160亿参数，在FP16精度下可在单张A100/A800或两张3090显卡运行，在INT4/8精度下可在单张3090显卡运行。MOSS基座语言模型在约七千亿中英文以及代码单词上预训练得到，后续经过对话指令微调、插件增强学习和人类偏好训练具备多轮对话能力及使用多种插件的能力。
 
@@ -65,7 +66,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 </details>
 
 
-## 本地部署
+## :robot: 本地部署
 ### 下载安装
 1. 下载本仓库内容至本地/远程服务器
 
@@ -162,15 +163,35 @@ pip install -r requirements.txt
 希望这些电影能够满足您的观影需求。
 ```
 
+#### 命令行Demo
+
+您可以运行仓库中的`moss_cli_demo.py`来启动一个简单的命令行Demo：
+
+```python
+>>> python moss_cli_demo.py
+```
+
+您可以在该Demo中与MOSS进行多轮对话，输入 `clear` 可以清空对话历史，输入 `stop` 终止Demo。
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_cli_demo.png)
+
 #### 通过API调用MOSS服务
 
 如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。
 
-## 开源协议
+## :link: 友情链接
+
+- [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
+- [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
+
+如果您有其他开源项目使用或改进MOSS，欢迎提交Pull Request添加到README或在Issues中联系我们。
+
+
+## :page_with_curl: 开源协议
 
 本项目所含代码采用[Apache 2.0](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/MOSS_agreement_form.pdf)并发送至robot@fudan.edu.cn取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
 
-## 致谢
+## :heart: 致谢
 
 - [CodeGen](https://arxiv.org/abs/2203.13474): 基座模型在CodeGen初始化基础上进行中文预训练
 - [Mosec](https://github.com/mosecorg/mosec): 模型部署和流式回复支持
