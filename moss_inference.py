@@ -55,7 +55,7 @@ class Inference:
             parallelism (bool, optional): Whether to initialize model parallelism. Defaults to True.
             device_map (Optional[Union[str, List[int]]], optional): The list of GPU device indices for model parallelism or "auto" to use the default device map. Defaults to None.
         """
-        self.model_dir = "your-moss-model-path" if not model_dir else model_dir
+        self.model_dir = "fnlp/moss-moon-003-sft" if not model_dir else model_dir
 
         if model:
             self.model = model
