@@ -4,3 +4,4 @@ sentencepiece
 datasets
 accelerate
 matplotlib
+huggingface_hub
