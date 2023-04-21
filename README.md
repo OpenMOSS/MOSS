@@ -40,11 +40,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 **MOSS用例**：
 
-<details><summary><b>使用搜索引擎</b></summary>
-
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_search.gif)
-
-</details>
 
 <details><summary><b>解方程</b></summary>
 
