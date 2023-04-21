@@ -93,9 +93,10 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 >>> print("Model Parallelism Devices: ", torch.cuda.device_count())
 >>> config = MossConfig.from_pretrained("fnlp/moss-16B-sft")
 >>> from accelerate import init_empty_weights, load_checkpoint_and_dispatch
+>>> from transformers import MossForCausalLM
 >>> with init_empty_weights():
         raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
-        raw_model.tie_weights()
+>>> raw_model.tie_weights()
 >>> model = load_checkpoint_and_dispatch(
             raw_model,
             "fnlp/moss-16B-sft",
@@ -124,7 +125,8 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 #include <iostream>
  
      int main() {       // start execution here      
-	        std::cout <<"Hello World!"; // print message using cout object	          		         return 0 ; 			 } 				 
+	        std::cout <<"Hello World!"; // print message using cout object	      
+                return 0 ; 			 } 				 
 ``` <eom>
 
 ```
