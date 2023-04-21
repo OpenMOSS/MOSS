@@ -1,0 +1,13 @@
+name: moss2
+channels:
+  - defaults
+dependencies:
+  - pip=23.0.1=py39h06a4308_0
+  - python=3.9.16=h7a1cb2a_2
+  - pip:
+    - torch==1.10.1
+    - transformers==4.25.1
+    - sentencepiece
+    - datasets
+    - accelerate
+    - matplotlib
