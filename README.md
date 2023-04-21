@@ -158,4 +158,4 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 - [CodeGen](https://arxiv.org/abs/2203.13474): 基座模型在CodeGen初始化基础上进行中文预训练
 - [Mosec](https://github.com/mosecorg/mosec): 模型部署和流式回复支持
-- [Shanghai Ai Lab](https://www.shlab.org.cn/): 算力支持
+- [Shanghai AI Lab](https://www.shlab.org.cn/): 算力支持
