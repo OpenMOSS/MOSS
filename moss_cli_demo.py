@@ -4,8 +4,9 @@ import torch
 import warnings
 import platform
 
+from huggingface_hub import snapshot_download
 from transformers.generation.utils import logger
-from accelerate import dispatch_model, infer_auto_device_map, init_empty_weights, load_checkpoint_and_dispatch
+from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 try:
     from transformers import MossForCausalLM, MossTokenizer
 except (ImportError, ModuleNotFoundError):
@@ -17,6 +18,8 @@ logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
 model_path = "fnlp/moss-moon-003-sft"
+if not os.path.exists(model_path):
+    model_path = snapshot_download(model_path)
 
 print("Waiting for all devices to be ready, it may take a few minutes...")
 config = MossConfig.from_pretrained(model_path)
