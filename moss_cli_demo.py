@@ -77,7 +77,7 @@ def main():
                 top_k=40, 
                 top_p=0.8, 
                 temperature=0.7,
-                repetition_penalty=1.1,
+                repetition_penalty=1.02,
                 num_return_sequences=1, 
                 eos_token_id=106068,
                 pad_token_id=tokenizer.pad_token_id)

@@ -33,7 +33,7 @@ DEFAULT_PARAS = {
                 "top_p":0.8, 
                 "length_penalty":1, 
                 "max_time":60, 
-                "repetition_penalty":1.1, 
+                "repetition_penalty":1.02, 
                 "max_iterations":512, 
                 "regulation_start":512,
                 "prefix_length":len(PREFIX),
@@ -193,7 +193,7 @@ class Inference:
         input_ids: torch.Tensor,
         attention_mask: torch.Tensor,
         temperature: float = 0.7,
-        repetition_penalty: float = 1.1,
+        repetition_penalty: float = 1.02,
         top_k: int = 0,
         top_p: float = 0.92,
         max_iterations: int = 1024,
@@ -208,7 +208,7 @@ class Inference:
             input_ids (torch.Tensor): The input IDs tensor.
             attention_mask (torch.Tensor): The attention mask tensor.
             temperature (float, optional): The temperature for logits. Defaults to 0.7.
-            repetition_penalty (float, optional): The repetition penalty factor. Defaults to 1.1.
+            repetition_penalty (float, optional): The repetition penalty factor. Defaults to 1.02.
             top_k (int, optional): The top-k value for filtering. Defaults to 0.
             top_p (float, optional): The top-p value for filtering. Defaults to 0.92.
             max_iterations (int, optional): The maximum number of iterations. Defaults to 1024.
