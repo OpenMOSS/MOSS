@@ -185,7 +185,6 @@ pip install triton
 >>> plain_text = meta_instruction + "<|Human|>: Hello MOSS, can you write a piece of C++ code that prints out ‘hello, world’? <eoh>\n<|Inner Thoughts|>: None<eot>\n<|Commands|>: None<eoc>\n<|Results|>: None<eor>\n<|MOSS|>:"
 
 >>> inputs = tokenizer(plain_text, return_tensors="pt")
-inputs = {k: inputs[k].cuda() for k in inputs}
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.1, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
