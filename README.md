@@ -26,9 +26,9 @@
 - [**moss-moon-003-base**](https://huggingface.co/fnlp/moss-moon-003-base): MOSS-003基座模型，在高质量中英文语料上自监督预训练得到，预训练语料包含约700B单词，计算量约6.67x10<sup>22</sup>次浮点数运算。
 - [**moss-moon-003-sft**](https://huggingface.co/fnlp/moss-moon-003-sft): 基座模型在约110万多轮对话数据上微调得到，具有指令遵循能力、多轮对话能力、规避有害请求能力。
 - [**moss-moon-003-sft-plugin**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin): 基座模型在约110万多轮对话数据和约30万插件增强的多轮对话数据上微调得到，在`moss-moon-003-sft`基础上还具备使用搜索引擎、文生图、计算器、解方程等四种插件的能力。
-- [**moss-moon-003-sft-int4**](https://huggingface.co/fnlp/moss-moon-003-sft-int4/tree/main): 4bit量化版本的[**moss-moon-003-sft**](https://huggingface.co/fnlp/moss-moon-003-sft)模型，约占用12Gb显存即可进行推理。
-- [**moss-moon-003-sft-int8**](https://huggingface.co/fnlp/moss-moon-003-sft-int8): 8bit量化版本的[**moss-moon-003-sft**](https://huggingface.co/fnlp/moss-moon-003-sft)模型，约占用24Gb显存即可进行推理。
-- [**moss-moon-003-sft-plugin-int4**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin-int4): 4bit量化版本的[**moss-moon-003-sft-plugin**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin)模型，约占用12Gb显存即可进行推理。
+- [**moss-moon-003-sft-int4**](https://huggingface.co/fnlp/moss-moon-003-sft-int4/tree/main): 4bit量化版本的[**moss-moon-003-sft**](https://huggingface.co/fnlp/moss-moon-003-sft)模型，约占用12GB显存即可进行推理。
+- [**moss-moon-003-sft-int8**](https://huggingface.co/fnlp/moss-moon-003-sft-int8): 8bit量化版本的[**moss-moon-003-sft**](https://huggingface.co/fnlp/moss-moon-003-sft)模型，约占用24GB显存即可进行推理。
+- [**moss-moon-003-sft-plugin-int4**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin-int4): 4bit量化版本的[**moss-moon-003-sft-plugin**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin)模型，约占用12GB显存即可进行推理。
 - **moss-moon-003-pm**: 在基于`moss-moon-003-sft`收集到的偏好反馈数据上训练得到的偏好模型，将在近期开源。
 - **moss-moon-003**: 在`moss-moon-003-sft`基础上经过偏好模型`moss-moon-003-pm`训练得到的最终模型，具备更好的事实性和安全性以及更稳定的回复质量，将在近期开源。
 - **moss-moon-003-plugin**: 在`moss-moon-003-sft-plugin`基础上经过偏好模型`moss-moon-003-pm`训练得到的最终模型，具备更强的意图理解能力和插件使用能力，将在近期开源。
