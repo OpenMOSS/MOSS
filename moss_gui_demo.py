@@ -1,15 +1,14 @@
-# ref https://github.com/THUDM/ChatGLM-6B/blob/main/web_demo.py
-
-import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "2,4"
-import torch
-import warnings
-import platform
-import gradio as gr
-import mdtex2html
-
+from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 from transformers.generation.utils import logger
-from accelerate import dispatch_model, infer_auto_device_map, init_empty_weights, load_checkpoint_and_dispatch
+from huggingface_hub import snapshot_download
+import mdtex2html
+import gradio as gr
+import platform
+import warnings
+import torch
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+
 try:
     from transformers import MossForCausalLM, MossTokenizer
 except (ImportError, ModuleNotFoundError):
@@ -21,6 +20,8 @@ logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
 model_path = "fnlp/moss-moon-003-sft"
+if not os.path.exists(model_path):
+    model_path = snapshot_download(model_path)
 
 print("Waiting for all devices to be ready, it may take a few minutes...")
 config = MossConfig.from_pretrained(model_path)
@@ -52,10 +53,14 @@ text_to_image_switch = '- Text-to-image: disabled.\n'
 image_edition_switch = '- Image edition: disabled.\n'
 text_to_speech_switch = '- Text-to-speech: disabled.\n'
 
-meta_instruction = meta_instruction + web_search_switch + calculator_switch + equation_solver_switch + text_to_image_switch + image_edition_switch + text_to_speech_switch
+meta_instruction = meta_instruction + web_search_switch + calculator_switch + \
+    equation_solver_switch + text_to_image_switch + \
+    image_edition_switch + text_to_speech_switch
 
 
 """Override Chatbot.postprocess"""
+
+
 def postprocess(self, y):
     if y is None:
         return []
@@ -113,19 +118,20 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
     inputs = tokenizer(prompt, return_tensors="pt")
     with torch.no_grad():
         outputs = model.generate(
-            inputs.input_ids.cuda(), 
-            attention_mask=inputs.attention_mask.cuda(), 
-            max_length=max_length, 
-            do_sample=True, 
-            top_k=50, 
-            top_p=top_p, 
-            temperature=temperature, 
-            num_return_sequences=1, 
+            inputs.input_ids.cuda(),
+            attention_mask=inputs.attention_mask.cuda(),
+            max_length=max_length,
+            do_sample=True,
+            top_k=50,
+            top_p=top_p,
+            temperature=temperature,
+            num_return_sequences=1,
             eos_token_id=106068,
             pad_token_id=tokenizer.pad_token_id)
-        response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
-  
-    chatbot[-1] = (query, parse_text(response.replace("<|MOSS|>: ","")))       
+        response = tokenizer.decode(
+            outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
+
+    chatbot[-1] = (query, parse_text(response.replace("<|MOSS|>: ", "")))
     history = history + [(query, response)]
     print(f"chatbot is {chatbot}")
     print(f"history is {history}")
@@ -154,11 +160,14 @@ with gr.Blocks() as demo:
                 submitBtn = gr.Button("Submit", variant="primary")
         with gr.Column(scale=1):
             emptyBtn = gr.Button("Clear History")
-            max_length = gr.Slider(0, 4096, value=2048, step=1.0, label="Maximum length", interactive=True)
-            top_p = gr.Slider(0, 1, value=0.7, step=0.01, label="Top P", interactive=True)
-            temperature = gr.Slider(0, 1, value=0.95, step=0.01, label="Temperature", interactive=True)
+            max_length = gr.Slider(
+                0, 4096, value=2048, step=1.0, label="Maximum length", interactive=True)
+            top_p = gr.Slider(0, 1, value=0.7, step=0.01,
+                              label="Top P", interactive=True)
+            temperature = gr.Slider(
+                0, 1, value=0.95, step=0.01, label="Temperature", interactive=True)
 
-    history = gr.State([])#(message, bot_message)
+    history = gr.State([])  # (message, bot_message)
 
     submitBtn.click(predict, [user_input, chatbot, max_length, top_p, temperature, history], [chatbot, history],
                     show_progress=True)

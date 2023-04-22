@@ -167,13 +167,22 @@ pip install -r requirements.txt
 
 您可以运行仓库中的`moss_cli_demo.py`来启动一个简单的命令行Demo：
 
-```python
->>> python moss_cli_demo.py
+```bash
+python moss_cli_demo.py
 ```
 
 您可以在该Demo中与MOSS进行多轮对话，输入 `clear` 可以清空对话历史，输入 `stop` 终止Demo。
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_cli_demo.png)
+
+#### 网页Demo
+
+感谢[Pull Request](https://github.com/OpenLMLab/MOSS/pull/25)提供的基于Gradio的网页Demo，您可以在安装Gradio后运行本仓库的`moss_gui_demo.py`：
+
+```bash
+pip install gradio
+python moss_gui_demo.py
+```
 
 #### 通过API调用MOSS服务
 
