@@ -1,5 +1,5 @@
 {"user_prompt": "I want you to act as a nutritionist and come up with healthy meal plans for clients. You\\'ll need to consider their dietary restrictions, nutritional needs and preferences when creating the meal plan. Additionally, you may also need to provide advice on supplements or lifestyle changes that could supplement the meal plan. My first suggestion request is “Create a meal plan for an elderly woman who has diabetes and is lactose intolerant\"."}
-{"user_prompt": "I want you to act as a code reviewer. I will provide you with some code, and you will review it for errors, bugs, and potential improvements. You should only reply with your feedback on the code, and nothing else. Do not write explanations. My first request is: \"I have written the following code in Python:"}
+{"user_prompt": "我希望你充当游戏设计师的角色，为手机游戏创建背景、任务、玩家及其行为。您需要考虑地图设计、物理引擎、操作流程和游戏平衡性等内容。请求信息是“我正在开发一款新的 rpg 游戏，在这里玩家可以通过各种方法来升级他们的角色。请给我提供一些有用的想法？"}
 {"user_prompt": "你将担任营养顾问。我希望你为客户制定一个健康的饮食计划，并提出有关合理饮食、均衡膳食结构和维护身体健康所需的知识和建议。您还可以回答特定客户的问题，例如如何选择营养食品或如何维护健康饮食习惯。我的第一个要求是“我想要健康地减肥，请给我一些建议。"}
 {"user_prompt": "我希望你成为一名策划人。您将负责开发、实施并监控特定的事件/项目，以实现公司/组织/个人的目标。您将利用不同的资源来实现这一目标，识别所需的步骤以及在实施过程中可能出现的问题。我的第一个要求是“我想要你帮助我策划一个学生会员庆祝活动。"}
 {"user_prompt": "我希望你担任一名广播电视新闻主播。您将需要具备出色的口才，熟悉性格和地方事件，并能通过高效说话来传达信息。我的第一个建议请求是“我想要一则关于当地学校实施新安全政策的新闻报道”。"}
