@@ -50,6 +50,12 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_search.gif)
 
+<details><summary><b>简单数学应用题</b></summary>
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_calculate.png)
+
+</details>
+
 <details><summary><b>解方程</b></summary>
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_solver.png)
@@ -59,6 +65,24 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 <details><summary><b>生成图片</b></summary>
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_text2img.png)
+
+</details>
+
+<details><summary><b>中文语境</b></summary>
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese1.png)
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese2.png)
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese3.png)
+
+</details>
+
+<details><summary><b>代码能力</b></summary>
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_code1.png)
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_code2.png)
 
 </details>
 
@@ -252,4 +276,3 @@ python moss_gui_demo.py
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=OpenLMLab/MOSS&type=Date)](https://star-history.com/#OpenLMLab/MOSS&Date)
-
