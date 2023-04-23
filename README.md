@@ -70,19 +70,19 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 <details><summary><b>中文语境</b></summary>
 
-![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese1.png)
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese_1.png)
 
-![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese2.png)
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese_2.png)
 
-![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese3.png)
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_chinese_3.png)
 
 </details>
 
 <details><summary><b>代码能力</b></summary>
 
-![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_code1.png)
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_code_1.png)
 
-![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_code2.png)
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_code_2.png)
 
 </details>
 
