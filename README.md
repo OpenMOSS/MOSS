@@ -122,7 +122,8 @@ pip install triton
 ```
 
 其中`torch`和`transformers`版本不建议低于推荐版本。
-**目前triton仅支持Linux及WSL，暂不支持Windows及Mac OS，请等待后续更新。**
+
+目前triton仅支持Linux及WSL，暂不支持Windows及Mac OS，请等待后续更新。
 
 ### 使用示例
 
