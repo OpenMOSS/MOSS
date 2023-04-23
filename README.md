@@ -200,6 +200,7 @@ pip install triton
 
 #### 模型量化
 
+**目前仅支持单卡部署量化模型**
 在显存受限的场景下，调用量化版本的模型可以显著降低推理成本。我们使用[GPTQ](https://github.com/IST-DASLab/gptq)算法和[GPTQ-for-LLaMa](https://github.com/qwopqwop200/GPTQ-for-LLaMa)中推出的OpenAI [triton](https://github.com/openai/triton) backend实现量化推理：
 
 ~~~python
