@@ -6,7 +6,7 @@ import torch
 import torch.utils.checkpoint
 from torch import nn
 from torch.nn import CrossEntropyLoss
-
+import transformers
 from transformers.activations import ACT2FN
 from transformers.modeling_utils import PreTrainedModel
 from transformers.modeling_outputs import BaseModelOutputWithPast, CausalLMOutputWithPast
@@ -19,7 +19,6 @@ from transformers.utils import (
 
 from .configuration_moss import MossConfig
 
-
 logger = logging.get_logger(__name__)
 
 _CHECKPOINT_FOR_DOC = "fnlp/moss-moon-003-base"
@@ -30,6 +29,10 @@ MOSS_PRETRAINED_MODEL_ARCHIVE_LIST = [
     "fnlp/moss-moon-003-base",
     "fnlp/moss-moon-003-sft",
     "fnlp/moss-moon-003-sft-plugin",
+    "fnlp/moss-moon-003-sft-int4",
+    "fnlp/moss-moon-003-sft-plugin-int4",
+    "fnlp/moss-moon-003-sft-int8",
+    "fnlp/moss-moon-003-sft-plugin-int8",
 ]
 
 
@@ -585,9 +588,28 @@ class MossForCausalLM(MossPreTrainedModel):
 
     def __init__(self, config):
         super().__init__(config)
+        if not hasattr(config, 'wbits'):
+            config.wbits = 32
+            config.groupsize = 128
+            
+        if config.wbits not in [4, 8, 32]:
+            logger.warning(f'Specify `wbits` with 4, 8 or 32 to load the model. ')
+        if config.wbits in [4, 8]:
+            def noop(*args, **kwargs):
+                pass
+            torch.nn.init.kaiming_uniform_ = noop
+            torch.nn.init.uniform_ = noop
+            torch.nn.init.normal_ = noop
+
+            torch.set_default_dtype(torch.half)
+            transformers.modeling_utils._init_weights = False
+            torch.set_default_dtype(torch.half)
         self.transformer = MossModel(config)
         self.lm_head = nn.Linear(config.n_embd, config.vocab_size)
-
+        if config.wbits in [4, 8]:
+            torch.set_default_dtype(torch.float)
+            transformers.modeling_utils._init_weights = True
+            self.quantize(config.wbits, config.groupsize)
         # Initialize weights and apply final processing
         self.post_init()
 
@@ -709,3 +731,8 @@ class MossForCausalLM(MossPreTrainedModel):
             tuple(past_state.index_select(0, beam_idx.to(past_state.device)) for past_state in layer_past)
             for layer_past in past_key_values
         )
+
+    def quantize(self, wbits, groupsize):
+        from .quantization import quantize_with_gptq
+        return quantize_with_gptq(self, wbits, groupsize)
+

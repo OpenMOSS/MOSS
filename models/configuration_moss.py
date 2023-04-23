@@ -92,6 +92,8 @@ class MossConfig(PretrainedConfig):
         bos_token_id=106028,
         eos_token_id=106068,
         tie_word_embeddings=False,
+        wbits=32,
+        groupsize=128,
         **kwargs,
     ):
         self.vocab_size = vocab_size
@@ -109,6 +111,8 @@ class MossConfig(PretrainedConfig):
         self.layer_norm_epsilon = layer_norm_epsilon
         self.initializer_range = initializer_range
         self.use_cache = use_cache
+        self.wbits = wbits
+        self.groupsize = groupsize
 
         self.bos_token_id = bos_token_id
         self.eos_token_id = eos_token_id

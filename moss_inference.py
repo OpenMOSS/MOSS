@@ -343,10 +343,14 @@ class Inference:
 
 if __name__ == "__main__":
     import os
-    os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+    # os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
     
     # Create an Inference instance with the specified model directory.
     infer = Inference(model_dir="fnlp/moss-moon-003-sft", device_map="auto")
+
+    # If you need to load a quantized model, please instead load the model and then pass it into Inference.__init__.
+    # model = MossForCausalLM.from_pretrained("fnlp/moss-moon-003-sft-int4").half().cuda()
+    # infer = Inference(model, device_map="auto")
 
     # Define a test case string.
     test_case = "<|Human|>: Hello MOSS<eoh>\n<|MOSS|>:"
