@@ -278,8 +278,15 @@ transformers==4.25.1
 创建 `run.sh` 文件并将以下内容复制到该文件中：
 
 ```bash
+num_machines=4
+num_processes=$((num_machines * 8))
+machine_rank=0
+
 accelerate launch \
 	--config_file ./configs/sft.yaml \
+	--num_processes $num_processes \
+	--num_machines $num_machines \
+	--machine_rank $machine_rank \	
 	--deepspeed_multinode_launcher standard finetune_moss.py \
 	--model_name_or_path fnlp/moss-moon-003-base \
 	--data_dir ./sft_data \
@@ -293,11 +300,11 @@ accelerate launch \
 	--save_step 2000"
 ```
 
-然后，运行以下指令进行训练：
-
+然后，运行以下指令进行训练:
 ```bash
 bash run.sh
 ```
+多节点运行需每台机器都运行一次，且需要正确指定每台机器的 `machine_rank`.
 如果你想要从本地加载模型，可以将 run.sh 中的 fnlp/moss-moon-003-base 改为你本地的模型路径。
 
 在使用的时候注意 `moss-moon-003-base` 模型的 tokenizer 中，`eos token` 为 `<|endoftext|>`，在训练SFT模型时需要将该 token 指定为 `<eom>` token.
