@@ -29,6 +29,7 @@
 - [**moss-moon-003-sft-int4**](https://huggingface.co/fnlp/moss-moon-003-sft-int4/tree/main): 4bit量化版本的`moss-moon-003-sft`模型，约占用12GB显存即可进行推理。
 - [**moss-moon-003-sft-int8**](https://huggingface.co/fnlp/moss-moon-003-sft-int8): 8bit量化版本的`moss-moon-003-sft`模型，约占用24GB显存即可进行推理。
 - [**moss-moon-003-sft-plugin-int4**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin-int4): 4bit量化版本的`moss-moon-003-sft-plugin`模型，约占用12GB显存即可进行推理。
+- [**moss-moon-003-sft-plugin-int8**](https://huggingface.co/fnlp/moss-moon-003-sft-plugin-int8): 8bit量化版本的`moss-moon-003-sft-plugin`模型，约占用24GB显存即可进行推理。
 - **moss-moon-003-pm**: 在基于`moss-moon-003-sft`收集到的偏好反馈数据上训练得到的偏好模型，将在近期开源。
 - **moss-moon-003**: 在`moss-moon-003-sft`基础上经过偏好模型`moss-moon-003-pm`训练得到的最终模型，具备更好的事实性和安全性以及更稳定的回复质量，将在近期开源。
 - **moss-moon-003-plugin**: 在`moss-moon-003-sft-plugin`基础上经过偏好模型`moss-moon-003-pm`训练得到的最终模型，具备更强的意图理解能力和插件使用能力，将在近期开源。
