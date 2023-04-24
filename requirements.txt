@@ -5,3 +5,4 @@ datasets
 accelerate
 matplotlib
 huggingface_hub
+gradio
