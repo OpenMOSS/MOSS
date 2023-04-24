@@ -348,6 +348,7 @@ if __name__ == "__main__":
     # Create an Inference instance with the specified model directory.
     infer = Inference(model_dir="fnlp/moss-moon-003-sft", device_map="auto")
 
+    # ！！！如果需要运行量化版本，请以以下方式load模型！！！
     # If you need to load a quantized model, please instead load the model and then pass it into Inference.__init__.
     # model = MossForCausalLM.from_pretrained("fnlp/moss-moon-003-sft-int4").half().cuda()
     # infer = Inference(model, device_map="auto")
