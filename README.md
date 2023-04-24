@@ -256,6 +256,49 @@ python moss_gui_demo.py
 
 如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。
 
+## 微调
+
+本仓库提供了基于MOSS基座模型进行SFT训练的微调代码[finetune_moss.py](https://github.com/OpenLMLab/MOSS/blob/main/finetune_moss.py)。下面以微调不带plugins的对话数据为例介绍代码的使用方法（带plugins的数据与此一致）。
+
+### 软件依赖
+
+```bash
+accelerate==0.17.1
+numpy==1.24.2
+regex==2022.10.31
+torch==1.13.1+cu117
+tqdm==4.64.1
+transformers==4.25.1
+```
+
+### 使用方法
+
+将数据集按照[conversation_without_plugins](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins "conversation_without_plugins")]格式处理并放到`sft_data`目录中。将[configs](https://github.com/OpenLMLab/MOSS/tree/main/configs)文件夹下载到本地（可根据自己的计算配置更改相关信息，详细请参考[accelerate官方文档](https://huggingface.co/docs/accelerate/usage_guides/deepspeed)）。
+
+创建`run.sh`文件并将以下内容复制到该文件中：
+
+```bash
+accelerate launch \
+	--config_file ./configs/sft.yaml \
+	--deepspeed_multinode_launcher standard finetune_moss_v2.py \
+	--model_name_or_path fnlp/moss-moon-003-base \
+	--n_epochs 2 \
+	--train_bsz_per_gpu 4 \
+	--eval_bsz_per_gpu 4 \
+	--learning_rate 0.000015 \
+	--eval_step 5 \
+	--save_step 2000"
+```
+
+然后，运行以下指令进行训练：
+
+```bash
+bash run.sh
+```
+
+在使用的时候注意moss-moon-003-base模型的tokenizer中，`eos token`为``<|endoftext|>``，在训练SFT模型时需要将该token指定为`<eom>` token.
+
+
 ## :link: 友情链接
 
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
