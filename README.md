@@ -258,7 +258,7 @@ python moss_gui_demo.py
 
 ## 微调
 
-本仓库提供了基于 MOSS 基座模型进行 SFT 训练的微调代码 [finetune_moss.py](https://github.com/OpenLMLab/MOSS/blob/main/finetune_moss.py.下面以微调不带 plugins 的对话数据为例介绍代码的使用方法（带 plugins 的数据与此一致）。
+本仓库提供了基于 MOSS 基座模型进行 SFT 训练的微调代码 [finetune_moss.py](https://github.com/OpenLMLab/MOSS/blob/main/finetune_moss.py).下面以微调不带 plugins 的对话数据为例介绍代码的使用方法（带 plugins 的数据与此一致）。
 
 ### 软件依赖
 
@@ -273,7 +273,7 @@ transformers==4.25.1
 
 ### 使用方法
 
-将数据集按照 [conversation_without_plugins](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins] 格式处理并放到`sft_data`目录中。将 [configs](https://github.com/OpenLMLab/MOSS/tree/main/configs) 文件夹下载到本地（可根据自己的计算配置更改相关信息，详细请参考 [accelerate](https://huggingface.co/docs/accelerate/usage_guides/deepspeed) 官方文档。
+将数据集按照 [conversation_without_plugins](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins) 格式处理并放到 `sft_data` 目录中。将 [configs](https://github.com/OpenLMLab/MOSS/tree/main/configs) 文件夹下载到本地（可根据自己的计算配置更改相关信息，详细请参考 [accelerate](https://huggingface.co/docs/accelerate/usage_guides/deepspeed) 官方文档。
 
 创建`run.sh`文件并将以下内容复制到该文件中：
 
