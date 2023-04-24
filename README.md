@@ -280,13 +280,16 @@ transformers==4.25.1
 ```bash
 accelerate launch \
 	--config_file ./configs/sft.yaml \
-	--deepspeed_multinode_launcher standard finetune_moss_v2.py \
+	--deepspeed_multinode_launcher standard finetune_moss.py \
 	--model_name_or_path fnlp/moss-moon-003-base \
+	--data_dir ./sft_data \
+	--output_dir ./ckpts/moss-moon-003-sft \
+	--log_dir ./train_logs/moss-moon-003-sft \
 	--n_epochs 2 \
 	--train_bsz_per_gpu 4 \
 	--eval_bsz_per_gpu 4 \
 	--learning_rate 0.000015 \
-	--eval_step 5 \
+	--eval_step 200 \
 	--save_step 2000"
 ```
 
@@ -295,6 +298,7 @@ accelerate launch \
 ```bash
 bash run.sh
 ```
+如果你想要从本地加载模型，可以将 run.sh 中的 fnlp/moss-moon-003-base 改为你本地的模型路径。
 
 在使用的时候注意moss-moon-003-base模型的tokenizer中，`eos token`为``<|endoftext|>``，在训练SFT模型时需要将该token指定为`<eom>` token.
 
