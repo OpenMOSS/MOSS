@@ -19,7 +19,7 @@ def find_layers(module, layers=[nn.Conv2d, nn.Linear], name=''):
 try:
     import triton
     import triton.language as tl
-    from .custom_autotune import *
+    from models.custom_autotune import *
 except:
     print('triton not installed. Run `pip install triton` to load quantized version of MOSS.')
 
