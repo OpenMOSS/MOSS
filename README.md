@@ -252,7 +252,6 @@ python moss_cli_demo.py
 感谢[Pull Request](https://github.com/OpenLMLab/MOSS/pull/25)提供的基于Gradio的网页Demo，您可以在安装Gradio后运行本仓库的`moss_gui_demo.py`：
 
 ```bash
-pip install gradio
 python moss_gui_demo.py
 ```
 
