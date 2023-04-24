@@ -275,7 +275,7 @@ transformers==4.25.1
 
 将数据集按照 [conversation_without_plugins](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins) 格式处理并放到 `sft_data` 目录中。将 [configs](https://github.com/OpenLMLab/MOSS/tree/main/configs) 文件夹下载到本地（可根据自己的计算配置更改相关信息，详细请参考 [accelerate](https://huggingface.co/docs/accelerate/usage_guides/deepspeed) 官方文档。
 
-创建`run.sh`文件并将以下内容复制到该文件中：
+创建 `run.sh` 文件并将以下内容复制到该文件中：
 
 ```bash
 accelerate launch \
