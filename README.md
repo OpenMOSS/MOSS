@@ -429,6 +429,8 @@ bash run.sh
 
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
+- [MOSS_Vortex](https://github.com/OpenLMLab/MOSS_Vortex) - MOSS 持久化部署
+- [MOSS_WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool) - MOSS 搜索工具部署方案
 
 如果您有其他开源项目使用或改进MOSS，欢迎提交Pull Request添加到README或在Issues中联系我们。
 
