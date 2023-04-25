@@ -372,7 +372,7 @@ streamlit run moss_web_demo_streamlit.py --server.port 8888
 感谢[Pull Request](https://github.com/OpenLMLab/MOSS/pull/25)提供的基于Gradio的网页Demo，您可以在安装Gradio后运行本仓库的[moss_web_demo_gradio.py](https://github.com/OpenLMLab/MOSS/blob/main/moss_web_demo_gradio.py)：
 
 ```bash
-python moss_gui_demo.py
+python moss_web_demo_gradio.py
 ```
 
 #### 命令行Demo
