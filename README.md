@@ -14,6 +14,7 @@
 - [开源清单](#spiral_notepad-开源清单)
   - [模型](#模型)
   - [数据](#数据)
+  - [工程方案](#工程方案)
 - [介绍](#fountain_pen-介绍)
 - [本地部署](#robot-本地部署)
   - [硬件要求](#硬件要求)
@@ -49,6 +50,13 @@
 - [**moss-003-sft-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins): `moss-moon-003-sft`所使用的多轮对话数据，基于MOSS-002内测阶段采集的约10万用户输入数据和`gpt-3.5-turbo`构造而成，相比`moss-002-sft-data`，`moss-003-sft-data`更加符合真实用户意图分布，包含更细粒度的有用性类别标记、更广泛的无害性数据和更长对话轮数，约含110万条对话数据。目前仅开源少量示例数据，完整数据将在近期开源。
 - [**moss-003-sft-plugin-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins): `moss-moon-003-sft-plugin`所使用的插件增强的多轮对话数据，包含支持搜索引擎、文生图、计算器、解方程等四个插件在内的约30万条多轮对话数据。目前仅开源少量示例数据，完整数据将在近期开源。
 - **moss-003-pm-data**: `moss-moon-003-pm`所使用的偏好数据，包含在约18万额外对话上下文数据及使用`moss-moon-003-sft`所产生的回复数据上构造得到的偏好对比数据，将在近期开源。
+
+### 工程方案
+
+- [**MOSS Vortex**](https://github.com/OpenLMLab/MOSS_Vortex) - MOSS部署和推理方案
+- [**MOSS_WebSearchTool**](https://github.com/OpenLMLab/MOSS_WebSearchTool) - MOSS搜索引擎插件部署方案
+- [**MOSS Frontend**](https://github.com/singularity-s0/MOSS_frontend) - 基于flutter实现的MOSS-003前端界面
+- [**MOSS Backend**](https://github.com/JingYiJun/MOSS_backend) - 基于Go实现的MOSS-003后端
 
 ## :fountain_pen: 介绍
 
@@ -427,10 +435,6 @@ bash run.sh
 
 ## :link: 友情链接
 
-- [MOSS Vortex](https://github.com/OpenLMLab/MOSS_Vortex) - MOSS部署和推理方案
-- [MOSS_WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool) - MOSS搜索引擎插件部署方案
-- [MOSS Frontend](https://github.com/singularity-s0/openchat_frontend) - 基于flutter实现的MOSS-003前端界面
-- [MOSS Backend](https://github.com/JingYiJun/MOSS_backend) - 基于Go实现的MOSS-003后端
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
 
