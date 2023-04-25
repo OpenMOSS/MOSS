@@ -428,12 +428,11 @@ bash run.sh
 ## :link: 友情链接
 
 - [MOSS Vortex](https://github.com/OpenLMLab/MOSS_Vortex) - MOSS部署和推理方案
+- [MOSS_WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool) - MOSS搜索引擎插件部署方案
 - [MOSS Frontend](https://github.com/singularity-s0/openchat_frontend) - 基于flutter实现的MOSS-003前端界面
 - [MOSS Backend](https://github.com/JingYiJun/MOSS_backend) - 基于Go实现的MOSS-003后端
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
-- [MOSS_Vortex](https://github.com/OpenLMLab/MOSS_Vortex) - MOSS 持久化部署
-- [MOSS_WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool) - MOSS 搜索工具部署方案
 
 如果您有其他开源项目使用或改进MOSS，欢迎提交Pull Request添加到README或在Issues中联系我们。
 
