@@ -7,22 +7,24 @@
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)
 [![Model License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)
 
+[[中文版](https://github.com/OpenLMLab/MOSS/blob/main/README.md)] [[English](https://github.com/OpenLMLab/MOSS/blob/main/README_en.md)]
+
 ## 目录
 
-- [开源清单](#开源清单)
+- [开源清单](#spiral_notepad-开源清单)
   - [模型](#模型)
   - [数据](#数据)
-- [介绍](#介绍)
-- [本地部署](#本地部署)
+- [介绍](#fountain_pen-介绍)
+- [本地部署](#robot-本地部署)
   - [硬件要求](#硬件要求)
   - [下载安装](#下载安装)
   - [使用示例](#使用示例)
-- [微调](#微调)
+- [微调](#fire-微调)
   - [软件依赖](#软件依赖)
   - [使用方法](#使用方法)
-- [友情链接](#友情链接)
-- [未来计划](#未来计划)
-- [开源协议](#开源协议)
+- [友情链接](#link-友情链接)
+- [未来计划](#construction-未来计划)
+- [开源协议](#page_with_curl-开源协议)
 
 ----
 
@@ -274,7 +276,7 @@ python moss_gui_demo.py
 
 如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。
 
-## 微调
+## :fire: 微调
 
 本仓库提供了基于 MOSS 基座模型进行 SFT 训练的微调代码 [finetune_moss.py](https://github.com/OpenLMLab/MOSS/blob/main/finetune_moss.py).下面以微调不带 plugins 的对话数据为例介绍代码的使用方法（带 plugins 的数据与此一致）。
 
