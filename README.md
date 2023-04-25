@@ -167,6 +167,8 @@ pip install triton
 您好！我是MOSS，有什么我可以帮助您的吗？ 
 >>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 推荐五部科幻电影<eoh>\n<|MOSS|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
+>>> for k in inputs:
+...     inputs[k] = inputs[k].cuda()
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
@@ -222,9 +224,7 @@ pip install triton
 
 #### 模型量化
 
-**目前仅支持单卡部署量化模型**
-
-在显存受限的场景下，调用量化版本的模型可以显著降低推理成本。我们使用[GPTQ](https://github.com/IST-DASLab/gptq)算法和[GPTQ-for-LLaMa](https://github.com/qwopqwop200/GPTQ-for-LLaMa)中推出的OpenAI [triton](https://github.com/openai/triton) backend（目前仅支持linux系统）实现量化推理：
+在显存受限的场景下，调用量化版本的模型可以显著降低推理成本。我们使用[GPTQ](https://github.com/IST-DASLab/gptq)算法和[GPTQ-for-LLaMa](https://github.com/qwopqwop200/GPTQ-for-LLaMa)中推出的OpenAI [triton](https://github.com/openai/triton) backend（目前仅支持linux系统）实现量化推理（**目前仅支持单卡部署量化模型**）：
 
 ~~~python
 >>> from transformers import AutoTokenizer, AutoModelForCausalLM
@@ -427,6 +427,9 @@ bash run.sh
 
 ## :link: 友情链接
 
+- [MOSS Vortex](https://github.com/OpenLMLab/MOSS_Vortex) - MOSS部署和推理方案
+- [MOSS Frontend](https://github.com/singularity-s0/openchat_frontend) - 基于flutter实现的MOSS-003前端界面
+- [MOSS Backend](https://github.com/JingYiJun/MOSS_backend) - 基于Go实现的MOSS-003后端
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
 
