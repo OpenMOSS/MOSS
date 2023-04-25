@@ -1,6 +1,6 @@
 import os
 import streamlit as st
-os.environ["CUDA_VISIBLE_DEVICES"] = "7"
+os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 
 
 import time
