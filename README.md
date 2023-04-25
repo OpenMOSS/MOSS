@@ -355,6 +355,26 @@ Search("黑暗荣耀 主演") =>
 
 其他插件格式请参考[conversation_with_plugins](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins). 搜索引擎插件可参照我们开源的[MOSS WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool). 
 
+#### 网页Demo
+
+**Streamlit**
+
+我们提供了一个基于[Streamlit](https://streamlit.io/)实现的网页Demo，您可以通过`pip install streamlit`来安装Streamlit，并运行本仓库中的[moss_web_demo_streamlit.py](https://github.com/OpenLMLab/MOSS/blob/main/moss_web_demo_streamlit.py)来打开网页Demo：
+
+```bash
+streamlit run moss_web_demo_streamlit.py --server.port 8888
+```
+
+![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/moss_web_demo.png)
+
+**Gradio**
+
+感谢[Pull Request](https://github.com/OpenLMLab/MOSS/pull/25)提供的基于Gradio的网页Demo，您可以在安装Gradio后运行本仓库的[moss_web_demo_gradio.py](https://github.com/OpenLMLab/MOSS/blob/main/moss_web_demo_gradio.py)：
+
+```bash
+python moss_gui_demo.py
+```
+
 #### 命令行Demo
 
 您可以运行仓库中的`moss_cli_demo.py`来启动一个简单的命令行Demo：
@@ -367,17 +387,9 @@ python moss_cli_demo.py
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_cli_demo.png)
 
-#### 网页Demo
-
-感谢[Pull Request](https://github.com/OpenLMLab/MOSS/pull/25)提供的基于Gradio的网页Demo，您可以在安装Gradio后运行本仓库的`moss_gui_demo.py`：
-
-```bash
-python moss_gui_demo.py
-```
-
 #### 通过API调用MOSS服务
 
-如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。
+如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。由于服务能力有限，目前仅面向企业开放API服务。
 
 ## :fire: 微调
 
