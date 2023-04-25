@@ -54,7 +54,7 @@
 ### 工程方案
 
 - [**MOSS Vortex**](https://github.com/OpenLMLab/MOSS_Vortex) - MOSS部署和推理方案
-- [**MOSS_WebSearchTool**](https://github.com/OpenLMLab/MOSS_WebSearchTool) - MOSS搜索引擎插件部署方案
+- [**MOSS WebSearchTool**](https://github.com/OpenLMLab/MOSS_WebSearchTool) - MOSS搜索引擎插件部署方案
 - [**MOSS Frontend**](https://github.com/singularity-s0/MOSS_frontend) - 基于flutter实现的MOSS-003前端界面
 - [**MOSS Backend**](https://github.com/JingYiJun/MOSS_backend) - 基于Go实现的MOSS-003后端
 
@@ -300,7 +300,6 @@ This code uses the `std::cout` object to print the string "Hello, world!" to the
 ```python
 >>> from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteriaList
 >>> from utils import StopWordsCriteria
->>> from utils import StopWordsCriteria
 >>> tokenizer = AutoTokenizer.from_pretrained("fnlp/moss-moon-003-sft-plugin-int4", trust_remote_code=True)
 >>> stopping_criteria_list = StoppingCriteriaList([StopWordsCriteria(tokenizer.encode("<eoc>", add_special_tokens=False))])
 >>> model = AutoModelForCausalLM.from_pretrained("fnlp/moss-moon-003-sft-plugin-int4", trust_remote_code=True).half().cuda()
@@ -333,7 +332,7 @@ Search("黑暗荣耀 主演") =>
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> for k in inputs:
 ...    inputs[k] = inputs[k].cuda()
->>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256, stopping_criteria=stopping_criteria_list)
+>>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
 《黑暗荣耀》的主演包括宋慧乔、李到晛、林智妍、郑星一等人。<sup><|1|></sup>
