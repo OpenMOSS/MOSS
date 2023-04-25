@@ -295,7 +295,7 @@ This code uses the `std::cout` object to print the string "Hello, world!" to the
 | Equation solver | Solve(equation)         |
 | Text-to-image   | Text2Image(description) |
 
-启用"Inner Thoughts"和对应插件后，可以通过以下代码获取插件调用命令：
+以下是一个MOSS使用搜索引擎插件的示例：
 
 ```python
 >>> from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteriaList
@@ -316,7 +316,7 @@ This code uses the `std::cout` object to print the string "Hello, world!" to the
 <|Commands|>: Search("黑暗荣耀 主演")
 ```
 
-本轮调用模型后我们获取了调用插件命令，在执行插件后将插件返回结果拼接到"Results"中即可再次调用模型得到回复。其中插件返回结果应按照如下格式：
+本轮调用模型后我们获取了调用插件命令`Search("黑暗荣耀 主演")`，在执行插件后将插件返回结果拼接到"Results"中即可再次调用模型得到回复。其中插件返回结果应按照如下格式：
 
 ```
 Search("黑暗荣耀 主演") =>
@@ -353,7 +353,7 @@ Search("黑暗荣耀 主演") =>
 <|MOSS|>: 《黑暗荣耀》的主演包括宋慧乔、李到晛、林智妍、郑星一等人。<sup><|1|></sup><eom>
 ```
 
-其他插件格式请参考[conversation_with_plugins](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins).
+其他插件格式请参考[conversation_with_plugins](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins). 搜索引擎插件可参照我们开源的[MOSS WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool). 
 
 #### 命令行Demo
 
