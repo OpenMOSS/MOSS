@@ -19,7 +19,7 @@
   - [GPU Requirements](#gpu-requirements)
   - [Installation](#installation)
   - [Try MOSS](#try-moss)
-- [Fine-tuning MOSS](#fine-tuning-moss)
+- [Fine-tuning MOSS](#fire-fine-tuning-moss)
   - [Requirements](#requirements)
   - [Start Training](#start-training)
 - [Related Links](#link-related-links)
@@ -272,7 +272,7 @@ Thank [Pull Request](https://github.com/OpenLMLab/MOSS/pull/25) for providing a 
 python moss_gui_demo.py
 ```
 
-## Fine-tuning MOSS
+## :fire: Fine-tuning MOSS
 
 We also provided the Python code [finetune_moss.py](https://github.com/OpenLMLab/MOSS/blob/main/finetune_moss.py) for fine-tuning MOSS base model.
 
