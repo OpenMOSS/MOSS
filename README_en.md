@@ -449,6 +449,7 @@ Note: In the tokenizer of `moss-moon-003-base`, the eos token is `<|endoftext|>`
 
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - Watch videos with MOSS!
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - A compute platform for deploying MOSS!
+- [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - Community-provided Docker images running int4 quantization and GradIOUI
 
 If you have other open-sourced projects that used or improved MOSS, please feel free to submit Pull Requests to README or reach out to us in Issues.
 
