@@ -3,6 +3,9 @@ import torch
 import torch.nn as nn
 from torch.cuda.amp import custom_bwd, custom_fwd
 import math
+import triton
+import triton.language as tl
+from models.custom_autotune import *
 
 
 def find_layers(module, layers=[nn.Conv2d, nn.Linear], name=''):
@@ -15,13 +18,6 @@ def find_layers(module, layers=[nn.Conv2d, nn.Linear], name=''):
         ))
     return res
 
-
-try:
-    import triton
-    import triton.language as tl
-    from models.custom_autotune import *
-except:
-    print('triton not installed. Run `pip install triton` to load quantized version of MOSS.')
 
 # code based https://github.com/fpgaminer/GPTQ-triton
 @autotune(
