@@ -118,7 +118,7 @@ class SFTDataset(Dataset):
             batch_labels.append(label)
 
         batch_input_ids = torch.nn.utils.rnn.pad_sequence(batch_input_ids, batch_first=True, padding_value=self.tokenizer.eos_token_id)
-        batch_attn_mask = torch.nn.utils.rnn.pad_sequence(batch_input_ids, batch_first=True, padding_value=0).to(torch.bool)
+        batch_attn_mask = torch.nn.utils.rnn.pad_sequence(batch_attn_mask, batch_first=True, padding_value=0).to(torch.bool)
         batch_labels = torch.nn.utils.rnn.pad_sequence(batch_labels, batch_first=True, padding_value=-100)
 
         return batch_input_ids, batch_attn_mask, batch_labels
