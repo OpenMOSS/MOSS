@@ -24,7 +24,7 @@ args = parser.parse_args()
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
 num_gpus = len(args.gpu.split(","))
 
-if args.model_name in ["fnlp/moss-moon-003-sft-int8", "fnlp/moss-moon-003-sft-int4"] and num_gpus > 1:
+if ('int8' in args.model_name or 'int4' in args.model_name) and num_gpus > 1:
     raise ValueError("Quantized models do not support model parallel. Please run on a single GPU (e.g., --gpu 0) or use `fnlp/moss-moon-003-sft`")
 
 st.set_page_config(
@@ -34,7 +34,7 @@ st.set_page_config(
      initial_sidebar_state="expanded",
  )
 
-st.title(':robot_face: moss-moon-003-sft')
+st.title(':robot_face: {}'.format(args.model_name.split('/')[-1]))
 st.sidebar.header("Parameters")
 temperature = st.sidebar.slider("Temerature", min_value=0.0, max_value=1.0, value=0.7)
 max_length = st.sidebar.slider('Maximum response length', min_value=256, max_value=1024, value=512)
