@@ -1,5 +1,5 @@
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+os.environ["CUDA_VISIBLE_DEVICES"] = os.getenv("CUDA_VISIBLE_DEVICES", "0,1")
 import torch
 import warnings
 import platform
@@ -34,7 +34,7 @@ model = load_checkpoint_and_dispatch(
 
 def clear():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
-    
+
 def main():
     meta_instruction = \
     """You are an AI assistant whose name is MOSS.
@@ -63,20 +63,20 @@ def main():
         inputs = tokenizer(prompt, return_tensors="pt")
         with torch.no_grad():
             outputs = model.generate(
-                inputs.input_ids.cuda(), 
-                attention_mask=inputs.attention_mask.cuda(), 
-                max_length=2048, 
-                do_sample=True, 
-                top_k=40, 
-                top_p=0.8, 
+                inputs.input_ids.cuda(),
+                attention_mask=inputs.attention_mask.cuda(),
+                max_length=2048,
+                do_sample=True,
+                top_k=40,
+                top_p=0.8,
                 temperature=0.7,
                 repetition_penalty=1.02,
-                num_return_sequences=1, 
+                num_return_sequences=1,
                 eos_token_id=106068,
                 pad_token_id=tokenizer.pad_token_id)
             response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
             prompt += response
             print(response.lstrip('\n'))
-    
+
 if __name__ == "__main__":
     main()

@@ -7,7 +7,7 @@ import platform
 import warnings
 import torch
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
+os.environ["CUDA_VISIBLE_DEVICES"] = os.getenv("CUDA_VISIBLE_DEVICES", "0,1")
 
 try:
     from transformers import MossForCausalLM, MossTokenizer
