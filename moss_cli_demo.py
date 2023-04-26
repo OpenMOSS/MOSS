@@ -1,36 +1,49 @@
+import argparse
 import os
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1"
-import torch
-import warnings
 import platform
+import warnings
 
+import torch
+from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 from huggingface_hub import snapshot_download
 from transformers.generation.utils import logger
-from accelerate import init_empty_weights, load_checkpoint_and_dispatch
-try:
-    from transformers import MossForCausalLM, MossTokenizer
-except (ImportError, ModuleNotFoundError):
-    from models.modeling_moss import MossForCausalLM
-    from models.tokenization_moss import MossTokenizer
-    from models.configuration_moss import MossConfig
+
+from models.configuration_moss import MossConfig
+from models.modeling_moss import MossForCausalLM
+from models.tokenization_moss import MossTokenizer
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4", 
+                    choices=["fnlp/moss-moon-003-sft", 
+                             "fnlp/moss-moon-003-sft-int8", 
+                             "fnlp/moss-moon-003-sft-int4"], type=str)
+parser.add_argument("--gpu", default="0", type=str)
+args = parser.parse_args()
+
+os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+num_gpus = len(args.gpu.split(","))
+
+if args.model_name in ["fnlp/moss-moon-003-sft-int8", "fnlp/moss-moon-003-sft-int4"] and num_gpus > 1:
+    raise ValueError("Quantized models do not support model parallel. Please run on a single GPU (e.g., --gpu 0) or use `fnlp/moss-moon-003-sft`")
 
 logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
-model_path = "fnlp/moss-moon-003-sft"
-if not os.path.exists(model_path):
-    model_path = snapshot_download(model_path)
+config = MossConfig.from_pretrained(args.model_name)
+tokenizer = MossTokenizer.from_pretrained(args.model_name)
+if num_gpus > 1:  
+    if not os.path.exists(args.model_name):
+        model_path = snapshot_download(args.model_name)
+    print("Waiting for all devices to be ready, it may take a few minutes...")
+    with init_empty_weights():
+        raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
+    raw_model.tie_weights()
+    model = load_checkpoint_and_dispatch(
+        raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
+    )
+else: # on a single gpu
+    model = MossForCausalLM.from_pretrained(args.model_name).half().cuda()
 
-print("Waiting for all devices to be ready, it may take a few minutes...")
-config = MossConfig.from_pretrained(model_path)
-tokenizer = MossTokenizer.from_pretrained(model_path)
-
-with init_empty_weights():
-    raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
-raw_model.tie_weights()
-model = load_checkpoint_and_dispatch(
-    raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
-)
 
 def clear():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
