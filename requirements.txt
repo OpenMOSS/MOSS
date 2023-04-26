@@ -7,3 +7,4 @@ matplotlib
 huggingface_hub
 gradio
 "auto-gptq -i https://pypi.org/simple"
+mdtex2html
