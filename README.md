@@ -397,7 +397,11 @@ python moss_web_demo_gradio.py
 python moss_cli_demo.py
 ```
 
-您可以在该Demo中与MOSS进行多轮对话，输入 `clear` 可以清空对话历史，输入 `stop` 终止Demo。
+您可以在该Demo中与MOSS进行多轮对话，输入 `clear` 可以清空对话历史，输入 `stop` 终止Demo。该命令默认使用`moss-moon-003-sft-int4`单卡运行，您也可以通过参数指定其他模型以及多卡并行，例如：
+
+```bash
+python moss_cli_demo.py --model_name fnlp/moss-moon-003-sft --gpu 0,1
+```
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_cli_demo.png)
 
