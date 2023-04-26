@@ -1,17 +1,31 @@
+import argparse
 import os
 import time
-import torch
-import streamlit as st
 
-from transformers import StoppingCriteriaList
+import streamlit as st
+import torch
+from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 from huggingface_hub import snapshot_download
+from transformers import StoppingCriteriaList
+
+from models.configuration_moss import MossConfig
 from models.modeling_moss import MossForCausalLM
 from models.tokenization_moss import MossTokenizer
-from models.configuration_moss import MossConfig
-from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 from utils import StopWordsCriteria
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "0,1" # Use two GPUs
+parser = argparse.ArgumentParser()
+parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4", 
+                    choices=["fnlp/moss-moon-003-sft", 
+                             "fnlp/moss-moon-003-sft-int8", 
+                             "fnlp/moss-moon-003-sft-int4"], type=str)
+parser.add_argument("--gpu", default="0", type=str)
+args = parser.parse_args()
+
+os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+num_gpus = len(args.gpu.split(","))
+
+if args.model_name in ["fnlp/moss-moon-003-sft-int8", "fnlp/moss-moon-003-sft-int4"] and num_gpus > 1:
+    raise ValueError("Quantized models do not support model parallel. Please run on a single GPU (e.g., --gpu 0) or use `fnlp/moss-moon-003-sft`")
 
 st.set_page_config(
      page_title="MOSS",
@@ -23,28 +37,28 @@ st.set_page_config(
 st.title(':robot_face: moss-moon-003-sft')
 st.sidebar.header("Parameters")
 temperature = st.sidebar.slider("Temerature", min_value=0.0, max_value=1.0, value=0.7)
-max_length = st.sidebar.slider('Maximum response length', min_value=32, max_value=1024, value=256)
+max_length = st.sidebar.slider('Maximum response length', min_value=256, max_value=1024, value=512)
 length_penalty = st.sidebar.slider('Length penalty', min_value=-2.0, max_value=2.0, value=1.0)
-repetition_penalty = st.sidebar.slider('Repetition penalty', min_value=1.0, max_value=1.5, value=1.02)
+repetition_penalty = st.sidebar.slider('Repetition penalty', min_value=1.0, max_value=1.1, value=1.02)
 max_time = st.sidebar.slider('Maximum waiting time (seconds)', min_value=10, max_value=120, value=60)
 
 
 @st.cache_resource
 def load_model():
-   model_path = 'fnlp/moss-moon-003-sft'
-   if not os.path.exists(model_path):
-      model_path = snapshot_download(model_path)
-
-   print("Waiting for all devices to be ready, it may take a few minutes...")
-   config = MossConfig.from_pretrained(model_path)
-   tokenizer = MossTokenizer.from_pretrained(model_path)
-
-   with init_empty_weights():
-      raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
-   raw_model.tie_weights()
-   model = load_checkpoint_and_dispatch(
-      raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
-   )
+   config = MossConfig.from_pretrained(args.model_name)
+   tokenizer = MossTokenizer.from_pretrained(args.model_name)
+   if num_gpus > 1:  
+      if not os.path.exists(args.model_name):
+         model_path = snapshot_download(args.model_name)
+      print("Waiting for all devices to be ready, it may take a few minutes...")
+      with init_empty_weights():
+         raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
+      raw_model.tie_weights()
+      model = load_checkpoint_and_dispatch(
+         raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
+      )
+   else: # on a single gpu
+      model = MossForCausalLM.from_pretrained(args.model_name, trust_remote_code=True).half().cuda()
    
    return tokenizer, model
 
