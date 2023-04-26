@@ -1,12 +1,17 @@
 import os
-import streamlit as st
-os.environ["CUDA_VISIBLE_DEVICES"] = "0"
-
-
 import time
-from transformers import AutoTokenizer, AutoModelForCausalLM, StoppingCriteriaList
+import torch
+import streamlit as st
+
+from transformers import StoppingCriteriaList
+from huggingface_hub import snapshot_download
+from models.modeling_moss import MossForCausalLM
+from models.tokenization_moss import MossTokenizer
+from models.configuration_moss import MossConfig
+from accelerate import init_empty_weights, load_checkpoint_and_dispatch
 from utils import StopWordsCriteria
 
+os.environ["CUDA_VISIBLE_DEVICES"] = "0,1" # Use two GPUs
 
 st.set_page_config(
      page_title="MOSS",
@@ -24,11 +29,23 @@ repetition_penalty = st.sidebar.slider('Repetition penalty', min_value=1.0, max_
 max_time = st.sidebar.slider('Maximum waiting time (seconds)', min_value=10, max_value=120, value=60)
 
 
-@st.cache(suppress_st_warning=True, allow_output_mutation=True)
+@st.cache_resource
 def load_model():
-   tokenizer = AutoTokenizer.from_pretrained("fnlp/moss-moon-003-sft", trust_remote_code=True)
-   model = AutoModelForCausalLM.from_pretrained("fnlp/moss-moon-003-sft", trust_remote_code=True).half().cuda()
-   model.eval()
+   model_path = 'fnlp/moss-moon-003-sft'
+   if not os.path.exists(model_path):
+      model_path = snapshot_download(model_path)
+
+   print("Waiting for all devices to be ready, it may take a few minutes...")
+   config = MossConfig.from_pretrained(model_path)
+   tokenizer = MossTokenizer.from_pretrained(model_path)
+
+   with init_empty_weights():
+      raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
+   raw_model.tie_weights()
+   model = load_checkpoint_and_dispatch(
+      raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
+   )
+   
    return tokenizer, model
 
 
