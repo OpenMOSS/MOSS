@@ -371,6 +371,14 @@ Search("黑暗荣耀 主演") =>
 streamlit run moss_web_demo_streamlit.py --server.port 8888
 ```
 
+该网页Demo默认使用`moss-moon-003-sft-int4`单卡运行，您也可以通过参数指定其他模型以及多卡并行，例如：
+
+```bash
+streamlit run moss_web_demo_streamlit.py --server.port 8888 -- --model_name fnlp/moss-moon-003-sft --gpu 0,1
+```
+
+注意：使用Streamlit命令时需要用一个额外的`--`分割Streamlit的参数和Python程序中的参数。
+
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/moss_web_demo.png)
 
 **Gradio**
