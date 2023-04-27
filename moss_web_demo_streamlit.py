@@ -59,7 +59,7 @@ def load_model():
          raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
       )
    else: # on a single gpu
-      model = MossForCausalLM.from_pretrained(args.model_name, trust_remote_code=True).half().cuda()
+      model = MossForCausalLM.from_pretrained(args.model_name).half().cuda()
    
    return tokenizer, model
 
