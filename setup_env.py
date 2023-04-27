@@ -3,10 +3,10 @@ from argparse import ArgumentParser
 
 """WARNING: this scripts may only works on linux"""
 
+# change version based on your situation
+pip_torch = "torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116",
 
 pip_dependencies = [
-    # change version based on your situation
-    "torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116",
     "transformers==4.25.1",
     "sentencepiece",
     "datasets",
@@ -25,6 +25,7 @@ def setup_env():
     parser.add_argument("--init_conda", action="store_true")
     parser.add_argument("--conda_name", type=str, default="moss")
     parser.add_argument("--python_version", type=str, default="3.10")
+    parser.add_argument("--reinstall_torch", action="store_true")
     args = parser.parse_args()
 
     if args.init_conda:
@@ -36,10 +37,42 @@ def setup_env():
                 cwd=args.conda_home
             ).stdout.decode()
         )
+
+    try:
+        import torch
+    except ImportError:
+        print(
+            subprocess.run(
+                f"./conda run -n {args.conda_name} pip install {pip_torch}".split(),
+                check=True,
+                stdout=subprocess.PIPE,
+                cwd=args.conda_home
+            ).stdout.decode()
+        )
+        args.reinstall_torch = False
+
+    if args.reinstall_torch:
+        print(
+            subprocess.run(
+                f"./conda run -n {args.conda_name} pip uninstall torch -y".split(),
+                check=True,
+                stdout=subprocess.PIPE,
+                cwd=args.conda_home
+            ).stdout.decode()
+        )
+        print(
+            subprocess.run(
+                f"./conda run -n {args.conda_name} pip install {pip_torch}".split(),
+                check=True,
+                stdout=subprocess.PIPE,
+                cwd=args.conda_home
+            ).stdout.decode()
+        )
+
     for pip_dependency in pip_dependencies:
         print(
             subprocess.run(
-                f"./conda run -n {args.conda_name} pip install -U {pip_dependency}".split(),
+                f"./conda run -n {args.conda_name} pip install {pip_dependency}".split(),
                 check=True,
                 stdout=subprocess.PIPE,
                 cwd=args.conda_home
