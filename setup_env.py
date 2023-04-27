@@ -40,7 +40,7 @@ def setup_env():
 
     try:
         import torch
-    except ImportError:
+    except:
         print(
             subprocess.run(
                 f"./conda run -n {args.conda_name} pip install {pip_torch}".split(),
