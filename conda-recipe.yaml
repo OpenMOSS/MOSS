@@ -28,5 +28,6 @@ dependencies:
 
   - matplotlib-base
   - gradio
+  - streamlit
   - pip:
     - mdtex2html
