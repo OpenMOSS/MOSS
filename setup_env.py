@@ -27,7 +27,7 @@ def setup_env():
     parser.add_argument("--python_version", type=str, default="3.10")
     parser.add_argument("--reinstall_torch", action="store_true")
     parser.add_argument("--no_cuda_ext_for_auto_gptq", action="store_true")
-    parser.add_argument("--use_triton", action="store_true")
+    parser.add_argument("--install_triton", action="store_true")
     args = parser.parse_args()
 
     if args.init_conda:
@@ -62,7 +62,7 @@ def setup_env():
         command = f"./conda run -n {args.conda_name} pip install {pip_dependency}"
         if "auto-gptq" in pip_dependency and args.no_cuda_ext_for_auto_gptq:
             command = "BUILD_CUDA_EXT=0 " + command
-        if "auto-gptq" in pip_dependency and args.use_triton:
+        if "auto-gptq" in pip_dependency and args.install_triton:
             command = command.replace("auto-gptq", "auto-gptq[triton]")
         print(
             subprocess.run(
