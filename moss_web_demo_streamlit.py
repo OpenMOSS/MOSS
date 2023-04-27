@@ -48,6 +48,7 @@ def load_model():
    config = MossConfig.from_pretrained(args.model_name)
    tokenizer = MossTokenizer.from_pretrained(args.model_name)
    if num_gpus > 1:  
+      model_path = args.model_name
       if not os.path.exists(args.model_name):
          model_path = snapshot_download(args.model_name)
       print("Waiting for all devices to be ready, it may take a few minutes...")
