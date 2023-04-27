@@ -21,13 +21,31 @@ pip_dependencies = [
 
 def setup_env():
     parser = ArgumentParser()
-    parser.add_argument("--conda_home", type=str, default="/root/miniconda3/bin")
-    parser.add_argument("--init_conda", action="store_true")
+    parser.add_argument(
+        "--conda_home",
+        type=str,
+        default="/root/miniconda3/bin",
+        help="path to where your conda executable installed"
+    )
     parser.add_argument("--conda_name", type=str, default="moss")
-    parser.add_argument("--python_version", type=str, default="3.10")
-    parser.add_argument("--reinstall_torch", action="store_true")
-    parser.add_argument("--no_cuda_ext_for_auto_gptq", action="store_true")
-    parser.add_argument("--install_triton", action="store_true")
+    parser.add_argument(
+        "--init_conda",
+        action="store_true",
+        help="whether to create a new conda environment whose name is 'conda_name', make sure it's not exists."
+    )
+    parser.add_argument(
+        "--python_version",
+        type=str,
+        default="3.10",
+        help="python version used when creating conda env"
+    )
+    parser.add_argument("--reinstall_torch", action="store_true", help="whether to reinstall pytorch or not.")
+    parser.add_argument(
+        "--no_cuda_ext_for_auto_gptq",
+        action="store_true",
+        help="whether to not install CUDA extension for auto-gptq"
+    )
+    parser.add_argument("--install_triton", action="store_true", help="whether to install triton")
     args = parser.parse_args()
 
     if args.init_conda:
