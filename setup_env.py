@@ -40,19 +40,6 @@ def setup_env():
             ).stdout.decode()
         )
 
-    try:
-        import torch
-    except:
-        print(
-            subprocess.run(
-                f"./conda run -n {args.conda_name} pip install {pip_torch}".split(),
-                check=True,
-                stdout=subprocess.PIPE,
-                cwd=args.conda_home
-            ).stdout.decode()
-        )
-        args.reinstall_torch = False
-
     if args.reinstall_torch:
         print(
             subprocess.run(
