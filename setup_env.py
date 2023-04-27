@@ -61,7 +61,7 @@ def setup_env():
     for pip_dependency in pip_dependencies:
         command = f"./conda run -n {args.conda_name} pip install {pip_dependency}"
         if "auto-gptq" in pip_dependency and args.no_cuda_ext_for_auto_gptq:
-            command = "BUILD_CUDA_EXT=0 " + command
+            command = f"./conda run BUILD_CUDA_EXT=0 -n {args.conda_name} pip install {pip_dependency}"
         if "auto-gptq" in pip_dependency and args.install_triton:
             command = command.replace("auto-gptq", "auto-gptq[triton]")
         print(
