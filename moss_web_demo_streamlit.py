@@ -48,6 +48,7 @@ def load_model():
    config = MossConfig.from_pretrained(args.model_name)
    tokenizer = MossTokenizer.from_pretrained(args.model_name)
    if num_gpus > 1:  
+      model_path = args.model_name
       if not os.path.exists(args.model_name):
          model_path = snapshot_download(args.model_name)
       print("Waiting for all devices to be ready, it may take a few minutes...")
@@ -58,7 +59,7 @@ def load_model():
          raw_model, model_path, device_map="auto", no_split_module_classes=["MossBlock"], dtype=torch.float16
       )
    else: # on a single gpu
-      model = MossForCausalLM.from_pretrained(args.model_name, trust_remote_code=True).half().cuda()
+      model = MossForCausalLM.from_pretrained(args.model_name).half().cuda()
    
    return tokenizer, model
 

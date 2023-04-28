@@ -143,12 +143,6 @@ conda activate moss
 pip install -r requirements.txt
 ```
 
-4.   (可选) 4/8-bit 量化环境
-
-```bash
-pip install triton
-```
-
 其中`torch`和`transformers`版本不建议低于推荐版本。
 
 目前triton仅支持Linux及WSL，暂不支持Windows及Mac OS，请等待后续更新。
@@ -365,7 +359,7 @@ Search("黑暗荣耀 主演") =>
 
 **Streamlit**
 
-我们提供了一个基于[Streamlit](https://streamlit.io/)实现的网页Demo，您可以通过`pip install streamlit`来安装Streamlit，并运行本仓库中的[moss_web_demo_streamlit.py](https://github.com/OpenLMLab/MOSS/blob/main/moss_web_demo_streamlit.py)来打开网页Demo：
+我们提供了一个基于[Streamlit](https://streamlit.io/)实现的网页Demo，您可以运行本仓库中的[moss_web_demo_streamlit.py](https://github.com/OpenLMLab/MOSS/blob/main/moss_web_demo_streamlit.py)来打开网页Demo：
 
 ```bash
 streamlit run moss_web_demo_streamlit.py --server.port 8888
@@ -383,7 +377,7 @@ streamlit run moss_web_demo_streamlit.py --server.port 8888 -- --model_name fnlp
 
 **Gradio**
 
-感谢[Pull Request](https://github.com/OpenLMLab/MOSS/pull/25)提供的基于Gradio的网页Demo，您可以在安装Gradio后运行本仓库的[moss_web_demo_gradio.py](https://github.com/OpenLMLab/MOSS/blob/main/moss_web_demo_gradio.py)：
+感谢[Pull Request](https://github.com/OpenLMLab/MOSS/pull/25)提供的基于[Gradio](https://gradio.app/)的网页Demo，您可以运行本仓库中的[moss_web_demo_gradio.py](https://github.com/OpenLMLab/MOSS/blob/main/moss_web_demo_gradio.py)：
 
 ```bash
 python moss_web_demo_gradio.py
@@ -479,6 +473,8 @@ bash run.sh
 
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
+- [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - 社区提供的Docker镜像，运行int4量化版和GradIOUI
+- [V100单卡在线部署Int8量化版MOSS教程](https://www.heywhale.com/mw/project/6449f8fc3c3ad0d9754d8ae7) - 提供了量化版MOSS的部署样例，以及部署过程中一些问题的解决方法
 
 如果您有其他开源项目使用或改进MOSS，欢迎提交Pull Request添加到README或在Issues中联系我们。
 
