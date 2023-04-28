@@ -7,7 +7,7 @@
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)
 [![Model License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)
 
-[[中文版](https://github.com/OpenLMLab/MOSS/blob/main/README.md)] [[English](https://github.com/OpenLMLab/MOSS/blob/main/README_en.md)] [[官方微信群](https://github.com/OpenLMLab/MOSS/blob/main/examples/WeChatGroupQR.jpeg)]
+[[中文版](https://github.com/OpenLMLab/MOSS/blob/main/README.md)] [[English](https://github.com/OpenLMLab/MOSS/blob/main/README_en.md)] [[官方微信群](https://github.com/OpenLMLab/MOSS/blob/main/examples/WeChatGroupQR.jpg)]
 
 ## 目录
 
