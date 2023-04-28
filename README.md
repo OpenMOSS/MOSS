@@ -405,6 +405,19 @@ python moss_cli_demo.py --model_name fnlp/moss-moon-003-sft --gpu 0,1
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_cli_demo.png)
 
+同时，我们也提供了由深度学习框架 [计图Jittor](https://github.com/Jittor/Jittor) 支持的MOSS模型，您可以通过运行仓库中的 `moss_cli_demo_jittor.py` 来启动命令行Demo。计图能够在显存不足时通过内存交换大幅度减少显存的消耗。首先确保您安装了 `Jittor` 和 `cupy`：
+
+```bash
+pip install jittor
+pip install cupy-cu114  # 根据您的 cuda 版本决定
+```
+
+接着运行下面的命令：
+
+```bash
+python moss_cli_demo.py --model_name fnlp/moss-moon-003-sft --gpu
+```
+
 #### 通过API调用MOSS服务
 
 如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。由于服务能力有限，目前仅面向企业开放API服务。

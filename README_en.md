@@ -389,6 +389,19 @@ You can chat with MOSS in the demo. Clear dialogue history by typing `clear` and
 
 ![image](https://github.com/OpenLMLab/MOSS/blob/main/examples/example_moss_cli_demo.png)
 
+MOSS of [Jittor](https://github.com/Jittor/Jitto) version is also provided. You can try MOSS with a CLI demo by running `moss_cli_demo_jittor.py`. Jittor can swap GPU memory into CPU memory when the former is insufficient. Make sure that `Jittor` and `cupy` is installed:
+
+```bash
+pip install jittor
+pip install cupy-cu114  # depends on your cuda version.
+```
+
+Then run the command below:
+
+```bash
+python moss_cli_demo.py --model_name fnlp/moss-moon-003-sft --gpu
+```
+
 ## :fire: Fine-tuning MOSS
 
 We also provided the Python code [finetune_moss.py](https://github.com/OpenLMLab/MOSS/blob/main/finetune_moss.py) for fine-tuning MOSS base model.
