@@ -13,12 +13,10 @@ from models_jittor import MossForCausalLM, generate
 from models_jittor import load_from_torch_shard_ckpt
 
 parser = argparse.ArgumentParser()
-# parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4", 
-#                     choices=["fnlp/moss-moon-003-sft", 
-#                              "fnlp/moss-moon-003-sft-int8",
-#                              "fnlp/moss-moon-003-sft-int4"], type=str)
-parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft",
-                    type=str)
+parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft", 
+                    choices=["fnlp/moss-moon-003-sft", 
+                             "fnlp/moss-moon-003-sft-int8",
+                             "fnlp/moss-moon-003-sft-int4"], type=str)
 parser.add_argument("--generate", default="sample",
                     choices=["sample", "greedy"], type=str)
 parser.add_argument("--temperature", default=0.7, type=float)
@@ -102,9 +100,5 @@ def main():
             prompt += response
             print(response.lstrip('\n'))
     
-if __name__ == "__main__":
-    # python moss_cli_demo_jittor.py --model_name fnlp/moss-moon-003-sft --gpu \
-    # --generate sample --temperature 0.7 --top_k 40 --top_p 0.8 --max_len 2048
-    # python moss_cli_demo_jittor.py --model_name fnlp/moss-moon-003-sft --gpu \
-    # --generate greedy --max_len 2048                           
+if __name__ == "__main__":                         
     main()
