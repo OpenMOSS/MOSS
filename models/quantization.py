@@ -165,7 +165,7 @@ def matmul_248_kernel(a_ptr, b_ptr, c_ptr,
     nearest_power_of_two=True,
 )
 @triton.jit
-def trans_matmul_248_kernel(a_ptr, b_ptr, c_ptr,
+def transpose_matmul_248_kernel(a_ptr, b_ptr, c_ptr,
                             scales_ptr, zeros_ptr, g_ptr,
                             M, N, K, bits, maxq,
                             stride_am, stride_ak,
