@@ -478,7 +478,7 @@ bash run.sh
 
 ## :page_with_curl: 开源协议
 
-本项目所含代码采用[Apache 2.0](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/MOSS_agreement_form.pdf)并发送至robot@fudan.edu.cn取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
+本项目所含代码采用[Apache 2.0](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/agreements/MOSS_agreement.pdf)并填写[表格](https://a1jkiq3cpx.feishu.cn/share/base/form/shrcn80vIDuXWOOEGrHpvARaBPe)取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
 
 ## :heart: 致谢
 
