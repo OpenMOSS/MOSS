@@ -126,7 +126,7 @@ def predict(input, chatbot, max_length, top_p, temperature, history):
             attention_mask=inputs.attention_mask.cuda(),
             max_length=max_length,
             do_sample=True,
-            top_k=50,
+            top_k=40,
             top_p=top_p,
             temperature=temperature,
             num_return_sequences=1,
@@ -166,10 +166,10 @@ with gr.Blocks() as demo:
             emptyBtn = gr.Button("Clear History")
             max_length = gr.Slider(
                 0, 4096, value=2048, step=1.0, label="Maximum length", interactive=True)
-            top_p = gr.Slider(0, 1, value=0.7, step=0.01,
+            top_p = gr.Slider(0, 1, value=0.8, step=0.01,
                               label="Top P", interactive=True)
             temperature = gr.Slider(
-                0, 1, value=0.95, step=0.01, label="Temperature", interactive=True)
+                0, 1, value=0.7, step=0.01, label="Temperature", interactive=True)
 
     history = gr.State([])  # (message, bot_message)
 
