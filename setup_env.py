@@ -6,7 +6,7 @@ from argparse import ArgumentParser
 # change version based on your situation
 pip_torch = "torch==1.13.1+cu116 torchvision==0.14.1+cu116 torchaudio==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu116"
 
-pip_auto_gptq = "auto-gptq -i https://pypi.org/simple"
+pip_auto_gptq = "git+https://github.com/PanQiWei/AutoGPTQ.git"
 
 pip_dependencies = [
     "transformers==4.25.1",
