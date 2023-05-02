@@ -74,8 +74,15 @@ def main():
             clear()
             prompt = meta_instruction
             continue
-        prompt += '<|Human|>: ' + query + '<eoh>'
-        inputs = tokenizer(prompt, return_tensors="pt")
+        if query.strip() == "":
+            continue
+        try:
+            inputs = tokenizer(f"{prompt}<|Human|>: {query}<eoh>", return_tensors="pt")
+        except Exception as e:
+            print(f"{e}")
+            continue
+        prompt=f"{prompt}<|Human|>: {query}<eoh>"
+        # prompt += '<|Human|>: ' + query + '<eoh>'
         with torch.no_grad():
             outputs = model.generate(
                 inputs.input_ids.cuda(), 
