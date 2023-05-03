@@ -447,6 +447,7 @@ Note: In the tokenizer of `moss-moon-003-base`, the eos token is `<|endoftext|>`
 
 ## :link: Related Links
 
+- [MLC-LLM](https://github.com/mlc-ai/mlc-llm/tree/main/tests) - a universal solution that allows LLMs to be deployed natively on a diverse set of hardware backends and native applications. Now supported MOSS.
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - Watch videos with MOSS!
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - A compute platform for deploying MOSS!
 - [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - Community-provided Docker images running int4 quantization and GradIOUI

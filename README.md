@@ -458,9 +458,10 @@ bash run.sh
 
 ## :link: 友情链接
 
+- [MLC-LLM](https://github.com/mlc-ai/mlc-llm/tree/main/tests) - 帮助在各类硬件设备（包括iPhone, iPad等）上部署大语言模型，现已支持MOSS
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
-- [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - 社区提供的Docker镜像，运行int4量化版和GradIOUI
+- [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - 社区提供的Docker镜像，运行int4量化版和Gradio demo
 - [V100单卡在线部署Int8量化版MOSS教程](https://www.heywhale.com/mw/project/6449f8fc3c3ad0d9754d8ae7) - 提供了量化版MOSS的部署样例，以及部署过程中一些问题的解决方法
 
 如果您有其他开源项目使用或改进MOSS，欢迎提交Pull Request添加到README或在Issues中联系我们。
