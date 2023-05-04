@@ -414,7 +414,7 @@ python moss_cli_demo.py --model_name fnlp/moss-moon-003-sft --gpu
 
 #### 通过API调用MOSS服务
 
-如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。由于服务能力有限，目前仅面向企业开放API服务。
+如您不具备本地部署条件或希望快速将MOSS部署到您的服务环境，请联系我们获取推理服务IP地址以及专用API KEY，我们将根据当前服务压力考虑通过API接口形式向您提供服务，接口格式请参考[这里](https://github.com/OpenLMLab/MOSS/blob/main/moss_api.pdf)。由于服务能力有限，目前仅面向企业开放API服务，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/agreements/MOSS_agreement.pdf)并填写[此问卷](https://a1jkiq3cpx.feishu.cn/share/base/form/shrcn80vIDuXWOOEGrHpvARaBPe)取得授权。
 
 ## :fire: 微调
 
@@ -492,7 +492,7 @@ bash run.sh
 
 ## :page_with_curl: 开源协议
 
-本项目所含代码采用[Apache 2.0](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/agreements/MOSS_agreement.pdf)并填写[表格](https://a1jkiq3cpx.feishu.cn/share/base/form/shrcn80vIDuXWOOEGrHpvARaBPe)取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
+本项目所含代码采用[Apache 2.0](https://github.com/OpenLMLab/MOSS/blob/main/LICENSE)协议，数据采用[CC BY-NC 4.0](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)协议，模型权重采用[GNU AGPL 3.0](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)协议。如需将本项目所含模型用于商业用途或公开部署，请签署[本文件](https://github.com/OpenLMLab/MOSS/blob/main/agreements/MOSS_agreement.pdf)并填写[此问卷](https://a1jkiq3cpx.feishu.cn/share/base/form/shrcn80vIDuXWOOEGrHpvARaBPe)取得授权，商用情况仅用于记录，不会收取任何费用。如使用本项目所含模型及其修改版本提供服务产生误导性或有害性言论，造成不良影响，由服务提供方负责，与本项目无关。
 
 ## :heart: 致谢
 
