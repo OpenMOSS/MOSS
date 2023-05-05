@@ -471,6 +471,7 @@ bash run.sh
 
 ## :link: 友情链接
 
+- [Talk on OpenMMLab](https://www.bilibili.com/video/BV1fa4y1V7xG/): 关于MOSS及其相关技术的分享
 - [MLC-LLM](https://github.com/mlc-ai/mlc-llm/tree/main/tests) - 帮助在各类硬件设备（包括iPhone, iPad等）上部署大语言模型，现已支持MOSS
 - [VideoChat with MOSS](https://github.com/OpenGVLab/Ask-Anything/tree/main/video_chat_with_MOSS) - 将MOSS接入视频问答
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
