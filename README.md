@@ -274,7 +274,7 @@ pip install -r requirements.txt
 
 其中"Human"为用户输入，"Results"为插件调用结果，需要在程序中写入，其余字段为模型输出。因此，使用插件版MOSS时每轮对话需要调用两次模型，第一次生成到`<eoc>`获取插件调用结果并写入"Results"，第二次生成到`<eom>`获取MOSS回复。
 
-我们通过[meta instruction](https://github.com/OpenLMLab/MOSS/blob/main/meta_instruction.txt)来控制各个插件的启用情况。默认情况下所有插件均为`disabled`，若要启用某个插件，需要首先将"Inner Thoughts"修改为`enabled`，然后修改对应插件为`enabled`并提供接口格式。示例如下：
+我们通过[meta instruction](https://github.com/OpenLMLab/MOSS/blob/main/meta_instruction.txt)来控制各个插件的启用情况。默认情况下所有插件均为`disabled`，若要启用某个插件，需要修改对应插件为`enabled`并提供接口格式。示例如下：
 
 ```
 - Web search: enabled. API: Search(query)
