@@ -394,7 +394,7 @@ python moss_api_demo.py
 
 ```bash
 ## curl moss
-curl -X POST "http://0.0.0.0:19324" \
+curl -X POST "http://localhost:19324" \
      -H 'Content-Type: application/json' \
      -d '{"prompt": "你是谁？"}'
 ```
@@ -409,7 +409,7 @@ curl -X POST "http://0.0.0.0:19324" \
 
 ```bash
 ## curl moss multi-round
-curl -X POST "http://0.0.0.0:19324" \
+curl -X POST "http://localhost:19324" \
      -H 'Content-Type: application/json' \
      -d '{"prompt": "你是谁？", "uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}'
 ```

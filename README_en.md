@@ -389,7 +389,7 @@ You can chat with MOSS through api calling:
 
 ```bash
 ## curl moss
-curl -X POST "http://0.0.0.0:19324" \
+curl -X POST "http://localhost:19324" \
      -H 'Content-Type: application/json' \
      -d '{"prompt": "你是谁？"}'
 ```
@@ -400,11 +400,11 @@ You will get an uid at the first time you call the api:
 {"response":"\n<|Worm|>: 你好，有什么我可以帮助你的吗？","history":[["你好","\n<|Worm|>: 你好，有什么我可以帮助你的吗？"]],"status":200,"time":"2023-04-28 09:43:41","uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}
 ```
 
-You can fill the uid if you want to have a multi-round chat will moss:
+You can fill the uid if you want to have a multi-round chat with moss:
 
 ```bash
 ## curl moss multi-round
-curl -X POST "http://0.0.0.0:19324" \
+curl -X POST "http://localhost:19324" \
      -H 'Content-Type: application/json' \
      -d '{"prompt": "你是谁？", "uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}'
 ```
