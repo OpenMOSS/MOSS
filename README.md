@@ -382,6 +382,38 @@ streamlit run moss_web_demo_streamlit.py --server.port 8888 -- --model_name fnlp
 python moss_web_demo_gradio.py
 ```
 
+#### Api Demo
+
+你可以运行仓库中的`moss_api_demo.py`来对外提供一个简单的api服务
+
+```bash
+python moss_api_demo.py
+```
+
+启动api服务后，您可以通过网络调用来与MOSS交互
+
+```bash
+## curl moss
+curl -X POST "http://0.0.0.0:19324" \
+     -H 'Content-Type: application/json' \
+     -d '{"prompt": "你是谁？"}'
+```
+
+首次调用，您会得到一个api服务返回的uid
+
+```json
+{"response":"\n<|Worm|>: 你好，有什么我可以帮助你的吗？","history":[["你好","\n<|Worm|>: 你好，有什么我可以帮助你的吗？"]],"status":200,"time":"2023-04-28 09:43:41","uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}
+```
+
+您可以在后续的对话中填入该uid来和MOSS进行多轮对话
+
+```bash
+## curl moss multi-round
+curl -X POST "http://0.0.0.0:19324" \
+     -H 'Content-Type: application/json' \
+     -d '{"prompt": "你是谁？", "uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}'
+```
+
 #### 命令行Demo
 
 您可以运行仓库中的`moss_cli_demo.py`来启动一个简单的命令行Demo：
