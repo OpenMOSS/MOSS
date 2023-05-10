@@ -81,7 +81,7 @@ async def create_item(request: Request):
         history_mp[uid] = []
     for i, (old_query, response) in enumerate(history_mp[uid]):
         prompt += '<|Human|>: ' + old_query + '<eoh>'+response
-    prompt = '<|Human|>: ' + query + '<eoh>'
+    prompt += '<|Human|>: ' + query + '<eoh>'
     max_length = json_post_list.get('max_length', 2048)
     top_p = json_post_list.get('top_p', 0.8)
     temperature = json_post_list.get('temperature', 0.7)
