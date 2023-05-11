@@ -35,10 +35,12 @@ num_gpus = len(args.gpu.split(","))
 if args.model_name in ["fnlp/moss-moon-003-sft-int8", "fnlp/moss-moon-003-sft-int4"] and num_gpus > 1:
     raise ValueError("Quantized models do not support model parallel. Please run on a single GPU (e.g., --gpu 0) or use `fnlp/moss-moon-003-sft`")
 
+
 model_path = args.model_name
 if not os.path.exists(model_path):
     model_path = snapshot_download(model_path)
 print(model_path)
+
 
 config = MossConfig.from_pretrained(model_path)
 tokenizer = MossTokenizer.from_pretrained(model_path)
@@ -53,6 +55,7 @@ if num_gpus > 1:
     )
 else: # on a single gpu
     model = MossForCausalLM.from_pretrained(model_path).half().cuda()
+
 
 app = FastAPI()
 
@@ -70,6 +73,10 @@ meta_instruction = \
     """
 
 history_mp = {} # restore history for every uid
+
+@app.get("/")
+def read_main():
+    return {"message": "This is your main app"}
 
 @app.post("/")
 async def create_item(request: Request):
@@ -94,15 +101,15 @@ async def create_item(request: Request):
     inputs = tokenizer(prompt, return_tensors="pt")
     with torch.no_grad():
         outputs = model.generate(
-            inputs.input_ids.cuda(), 
-            attention_mask=inputs.attention_mask.cuda(), 
-            max_length=max_length, 
-            do_sample=True, 
-            top_k=40, 
-            top_p=top_p, 
+            inputs.input_ids.cuda(),
+            attention_mask=inputs.attention_mask.cuda(),
+            max_length=max_length,
+            do_sample=True,
+            top_k=40,
+            top_p=top_p,
             temperature=temperature,
             repetition_penalty=1.02,
-            num_return_sequences=1, 
+            num_return_sequences=1,
             eos_token_id=106068,
             pad_token_id=tokenizer.pad_token_id)
         response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
@@ -240,6 +247,6 @@ if __name__ == "__main__":
         
     # demo.queue().launch(share=False, inbrowser=True)
     
-    app = gr.mount_gradio_app(app, demo, path='/gr')
+    new_app = gr.mount_gradio_app(app, demo, path='/gradio')
 
-    uvicorn.run(app, host='0.0.0.0', port=7861, workers=2)
+    uvicorn.run(app=new_app, host='0.0.0.0', port=7861, workers=1)
