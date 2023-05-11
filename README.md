@@ -413,6 +413,19 @@ curl -X POST "http://localhost:19324" \
      -H 'Content-Type: application/json' \
      -d '{"prompt": "你是谁？", "uid":"10973cfc-85d4-4b7b-a56a-238f98689d47"}'
 ```
+#### API和网页一体化demo
+
+你可以运行仓库中的 `moss_api_and_web_demo_gradio.py`来对外提供服务，它在一个进程中提供一个简单的api服务和一gradio网页。
+
+```bash
+python moss_api_and_web_demo_gradio.py
+```
+
+启动服务后
+* 可以通过“http://localhost:7861/gradio/” 访问gradio网页。
+* 通过 'POST http://localhost:7861/' 访问API服务。具体调用方法请见[Api Demo](#Api Demo)中的请求示例。
+
+
 
 #### 命令行Demo
 
