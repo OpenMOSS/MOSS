@@ -21,3 +21,4 @@ We remove the data for honesty because it contains private information.
 ### Download link
 **Baidu Netdisk**: [download now](https://pan.baidu.com/s/1B6pyIAslfajJq_ohiMp87g?pwd=moss)  
 **Google Drive**: [download now](https://drive.google.com/file/d/1pRA5ygGIAtEa18ENRV9gCXLt2z1wY50m/view?usp=share_link)  
+**Huggingface**: [download now](https://huggingface.co/datasets/fnlp/moss-003-sft-data)
