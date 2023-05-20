@@ -12,7 +12,7 @@
 | Harmless             | 74,573     |
 | Others               | 19,701     |
 
-**Others** contains two categories: **Continue**(9,839) and **Switching**(9862).  
+**Others** contains two categories: **Continue**(9,839) and **Switching**(9,862).  
 The **Continue** category refers to instances in a conversation where the user asks the system to continue outputting the response from the previous round that was not completed.  
 The **Switching** category refers to instances in a conversation where the user switches the language they are using.  
 We remove the data for honesty because it contains private information.
