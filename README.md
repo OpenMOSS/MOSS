@@ -47,7 +47,7 @@
 ### 数据
 
 - [**moss-002-sft-data**](https://huggingface.co/datasets/fnlp/moss-002-sft-data): MOSS-002所使用的多轮对话数据，覆盖有用性、忠实性、无害性三个层面，包含由`text-davinci-003`生成的约57万条英文对话和59万条中文对话。
-- [**moss-003-sft-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_without_plugins): `moss-moon-003-sft`所使用的多轮对话数据，基于MOSS-002内测阶段采集的约10万用户输入数据和`gpt-3.5-turbo`构造而成，相比`moss-002-sft-data`，`moss-003-sft-data`更加符合真实用户意图分布，包含更细粒度的有用性类别标记、更广泛的无害性数据和更长对话轮数，约含110万条对话数据。目前仅开源少量示例数据，完整数据将在近期开源。
+- [**moss-003-sft-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data): `moss-moon-003-sft`所使用的多轮对话数据，基于MOSS-002内测阶段采集的约10万用户输入数据和`gpt-3.5-turbo`构造而成，相比`moss-002-sft-data`，`moss-003-sft-data`更加符合真实用户意图分布，包含更细粒度的有用性类别标记、更广泛的无害性数据和更长对话轮数，约含110万条对话数据。完整数据已全部开源。
 - [**moss-003-sft-plugin-data**](https://github.com/OpenLMLab/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins): `moss-moon-003-sft-plugin`所使用的插件增强的多轮对话数据，包含支持搜索引擎、文生图、计算器、解方程等四个插件在内的约30万条多轮对话数据。目前仅开源少量示例数据，完整数据将在近期开源。
 - **moss-003-pm-data**: `moss-moon-003-pm`所使用的偏好数据，包含在约18万额外对话上下文数据及使用`moss-moon-003-sft`所产生的回复数据上构造得到的偏好对比数据，将在近期开源。
 
