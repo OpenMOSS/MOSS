@@ -11,6 +11,7 @@
 | Writing              | 341,087    |
 | Harmless             | 74,573     |
 | Others               | 19,701     |
+| Total                | 1,074,551  |
 
 **Others** contains two categories: **Continue**(9,839) and **Switching**(9,862).  
 The **Continue** category refers to instances in a conversation where the user asks the system to continue outputting the response from the previous round that was not completed.  
