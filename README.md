@@ -508,7 +508,7 @@ bash run.sh
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
 - [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - 社区提供的Docker镜像，运行int4量化版和Gradio demo
 - [V100单卡在线部署Int8量化版MOSS教程](https://www.heywhale.com/mw/project/6449f8fc3c3ad0d9754d8ae7) - 提供了量化版MOSS的部署样例，以及部署过程中一些问题的解决方法
-
+- [ChatSQL](https://github.com/cubenlp/ChatSQL) - 基于MOSS+SBERT实现NL2SQL本地化，并直接连接数据库查询数据返回结果，使得生成的SQL语句更具有实用性。
 如果您有其他开源项目使用或改进MOSS，欢迎提交Pull Request添加到README或在Issues中联系我们。
 
 ## :construction: 未来计划

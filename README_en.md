@@ -496,7 +496,7 @@ Note: In the tokenizer of `moss-moon-003-base`, the eos token is `<|endoftext|>`
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - A compute platform for deploying MOSS!
 - [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - Community-provided Docker images running int4 quantization and GradIOUI
 - [An online tutorial on deploying quantized MOSS on single V100](https://www.heywhale.com/mw/project/6449f8fc3c3ad0d9754d8ae7) - A step-by-step tutorial on deploying moss-moon-003-sft-int8 is provided, and some specific solutions to common problems are also given
-
+- [ChatSQL](https://github.com/cubenlp/ChatSQL) - Based on MOSS+SBERT, implemented NL2SQL localization and directly connected to the database to query data and return results, making the generated SQL more practical.
 If you have other open-sourced projects that used or improved MOSS, please feel free to submit Pull Requests to README or reach out to us in Issues.
 
 ## :construction: Future Plans
