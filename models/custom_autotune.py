@@ -81,16 +81,21 @@ class Autotuner(triton.KernelInterface):
 			# In my testing this gives decent results, and greatly reduces the amount of tuning required
 			if self.nearest_power_of_two:
 				key = tuple([2 ** int(math.log2(x) + 0.5) for x in key])
-			
 			if key not in self.cache:
 				# prune configs
 				pruned_configs = self.prune_configs(kwargs)
 				bench_start = time.time()
 				timings = {config: self._bench(*args, config=config, **kwargs)
 							for config in pruned_configs}
+				temp = {}
+				for config in pruned_configs:
+					if isinstance(self._bench(*args, config=config, **kwargs), float) :
+						continue
+					temp[config] = {self._bench(*args, config=config, **kwargs)}
 				bench_end = time.time()
 				self.bench_time = bench_end - bench_start
-				self.cache[key] = builtins.min(timings, key=timings.get)
+
+				self.cache[key] = builtins.min(temp, key=timings.get)
 				self.hook(args)
 				self.configs_timings = timings
 			config = self.cache[key]
