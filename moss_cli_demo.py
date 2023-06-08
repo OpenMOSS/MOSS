@@ -14,7 +14,8 @@ from models.tokenization_moss import MossTokenizer
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4", 
-                    choices=["fnlp/moss-moon-003-sft", 
+                    choices=["fnlp/moss-moon-003-sft",
+                             "fnlp/moss-moon-003-sft-plugin",
                              "fnlp/moss-moon-003-sft-int8", 
                              "fnlp/moss-moon-003-sft-int4"], type=str)
 parser.add_argument("--gpu", default="0", type=str)
