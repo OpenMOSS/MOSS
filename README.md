@@ -508,6 +508,8 @@ bash run.sh
 - [ModelWhale](https://www.heywhale.com/mw/project/6442706013013653552b7545) - 支持在线部署MOSS的算力平台
 - [MOSS-DockerFile](https://github.com/linonetwo/MOSS-DockerFile) - 社区提供的Docker镜像，运行int4量化版和Gradio demo
 - [V100单卡在线部署Int8量化版MOSS教程](https://www.heywhale.com/mw/project/6449f8fc3c3ad0d9754d8ae7) - 提供了量化版MOSS的部署样例，以及部署过程中一些问题的解决方法
+- [gpt_academic](https://github.com/binary-husky/gpt_academic) - 支持MOSS的学术写作与编程工具箱，具有模块化和多线程调用LLM的特点，可并行调用多种LLM。
+- [闻达](https://github.com/wenda-LLM/wenda) - 大型语言模型调用平台，基于 MOSS 实现了类 ChatPDF 功能
 
 如果您有其他开源项目使用或改进MOSS，欢迎提交Pull Request添加到README或在Issues中联系我们。
 
