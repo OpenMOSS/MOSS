@@ -535,6 +535,16 @@ bash run.sh
 - [Shanghai AI Lab](https://www.shlab.org.cn/): 算力支持
 - [GPTQ](https://github.com/IST-DASLab/gptq)/[GPTQ-for-LLaMa](https://github.com/qwopqwop200/GPTQ-for-LLaMa): 量化算法及其对应的推理backend
 
+## Citation
+
+```bibtex
+@article{sun2023moss,
+  title={MOSS: Training Conversational Language Models from Synthetic Data}, 
+  author={Tianxiang Sun and Xiaotian Zhang and Zhengfu He and Peng Li and Qinyuan Cheng and Hang Yan and Xiangyang Liu and Yunfan Shao and Qiong Tang and Xingjian Zhao and Ke Chen and Yining Zheng and Zhejian Zhou and Ruixiao Li and Jun Zhan and Yunhua Zhou and Linyang Li and Xiaogui Yang and Lingling Wu and Zhangyue Yin and Xuanjing Huang and Xipeng Qiu},
+  year={2023}
+}
+```
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=OpenLMLab/MOSS&type=Date)](https://star-history.com/#OpenLMLab/MOSS&Date)
