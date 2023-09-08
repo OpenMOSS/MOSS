@@ -488,7 +488,7 @@ accelerate launch \
 	--eval_bsz_per_gpu 4 \
 	--learning_rate 0.000015 \
 	--eval_step 200 \
-	--save_step 2000"
+	--save_step 2000
 ```
 
 然后，运行以下指令进行训练:
