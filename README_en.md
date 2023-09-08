@@ -478,7 +478,7 @@ accelerate launch \
 	--eval_bsz_per_gpu 4 \
 	--learning_rate 0.000015 \
 	--eval_step 200 \
-	--save_step 2000"
+	--save_step 2000
 ```
 
 Now you can start training:
