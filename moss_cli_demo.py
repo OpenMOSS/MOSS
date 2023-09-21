@@ -13,11 +13,11 @@ from models.modeling_moss import MossForCausalLM
 from models.tokenization_moss import MossTokenizer
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4", 
-                    choices=["fnlp/moss-moon-003-sft", 
-                             "fnlp/moss-moon-003-sft-int8", 
+parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4",
+                    choices=["fnlp/moss-moon-003-sft",
+                             "fnlp/moss-moon-003-sft-int8",
                              "fnlp/moss-moon-003-sft-int4"], type=str)
-parser.add_argument("--gpu", default="0", type=str)
+parser.add_argument("--gpu", default=os.getenv("CUDA_VISIBLE_DEVICES", "0"), type=str)
 args = parser.parse_args()
 
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
@@ -35,7 +35,7 @@ if not os.path.exists(args.model_name):
 
 config = MossConfig.from_pretrained(model_path)
 tokenizer = MossTokenizer.from_pretrained(model_path)
-if num_gpus > 1:  
+if num_gpus > 1:
     print("Waiting for all devices to be ready, it may take a few minutes...")
     with init_empty_weights():
         raw_model = MossForCausalLM._from_config(config, torch_dtype=torch.float16)
@@ -49,7 +49,7 @@ else: # on a single gpu
 
 def clear():
     os.system('cls' if platform.system() == 'Windows' else 'clear')
-    
+
 def main():
     meta_instruction = \
     """You are an AI assistant whose name is MOSS.
@@ -78,20 +78,20 @@ def main():
         inputs = tokenizer(prompt, return_tensors="pt")
         with torch.no_grad():
             outputs = model.generate(
-                inputs.input_ids.cuda(), 
-                attention_mask=inputs.attention_mask.cuda(), 
-                max_length=2048, 
-                do_sample=True, 
-                top_k=40, 
-                top_p=0.8, 
+                inputs.input_ids.cuda(),
+                attention_mask=inputs.attention_mask.cuda(),
+                max_length=2048,
+                do_sample=True,
+                top_k=40,
+                top_p=0.8,
                 temperature=0.7,
                 repetition_penalty=1.02,
-                num_return_sequences=1, 
+                num_return_sequences=1,
                 eos_token_id=106068,
                 pad_token_id=tokenizer.pad_token_id)
             response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
             prompt += response
             print(response.lstrip('\n'))
-    
+
 if __name__ == "__main__":
     main()
