@@ -8,4 +8,5 @@ huggingface_hub
 triton
 streamlit
 gradio
+auto-gptq
 mdtex2html
