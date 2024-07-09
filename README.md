@@ -538,10 +538,15 @@ bash run.sh
 ## Citation
 
 ```bibtex
-@article{sun2023moss,
-  title={MOSS: Training Conversational Language Models from Synthetic Data}, 
-  author={Tianxiang Sun and Xiaotian Zhang and Zhengfu He and Peng Li and Qinyuan Cheng and Hang Yan and Xiangyang Liu and Yunfan Shao and Qiong Tang and Xingjian Zhao and Ke Chen and Yining Zheng and Zhejian Zhou and Ruixiao Li and Jun Zhan and Yunhua Zhou and Linyang Li and Xiaogui Yang and Lingling Wu and Zhangyue Yin and Xuanjing Huang and Xipeng Qiu},
-  year={2023}
+@Article{Sun2024MOSS,
+  author   = {Sun, Tianxiang and Zhang, Xiaotian and He, Zhengfu and Li, Peng and Cheng, Qinyuan and Liu, Xiangyang and Yan, Hang and Shao, Yunfan and Tang, Qiong and Zhang, Shiduo and Zhao, Xingjian and Chen, Ke and Zheng, Yining and Zhou, Zhejian and Li, Ruixiao and Zhan, Jun and Zhou, Yunhua and Li, Linyang and Yang, Xiaogui and Wu, Lingling and Yin, Zhangyue and Huang, Xuanjing and Jiang, Yu-Gang and Qiu, Xipeng},
+  journal  = {Machine Intelligence Research},
+  title    = {MOSS: An Open Conversational Large Language Model},
+  year     = {2024},
+  issn     = {2731-5398},
+  abstract = {Conversational large language models (LLMs) such as ChatGPT and GPT-4 have recently exhibited remarkable capabilities across various domains, capturing widespread attention from the public. To facilitate this line of research, in this paper, we report the development of MOSS, an open-sourced conversational LLM that contains 16 B parameters and can perform a variety of instructions in multi-turn interactions with humans. The base model of MOSS is pre-trained on large-scale unlabeled English, Chinese, and code data. To optimize the model for dialogue, we generate 1.1 M synthetic conversations based on user prompts collected through our earlier versions of the model API. We then perform preference-aware training on preference data annotated from AI feedback. Evaluation results on real-world use cases and academic benchmarks demonstrate the effectiveness of the proposed approaches. In addition, we present an effective practice to augment MOSS with several external tools. Through the development of MOSS, we have established a complete technical roadmap for large language models from pre-training, supervised fine-tuning to alignment, verifying the feasibility of chatGPT under resource-limited conditions and providing a reference for both the academic and industrial communities. Model weights and code are publicly available at https://github.com/OpenMOSS/MOSS.},
+  doi      = {10.1007/s11633-024-1502-8},
+  url      = {https://doi.org/10.1007/s11633-024-1502-8},
 }
 ```
 
