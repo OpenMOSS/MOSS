@@ -19,11 +19,11 @@ logger.setLevel("ERROR")
 warnings.filterwarnings("ignore")
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4", 
-                    choices=["fnlp/moss-moon-003-sft", 
-                             "fnlp/moss-moon-003-sft-int8", 
+parser.add_argument("--model_name", default="fnlp/moss-moon-003-sft-int4",
+                    choices=["fnlp/moss-moon-003-sft",
+                             "fnlp/moss-moon-003-sft-int8",
                              "fnlp/moss-moon-003-sft-int4"], type=str)
-parser.add_argument("--gpu", default="0", type=str)
+parser.add_argument("--gpu", default=os.getenv("CUDA_VISIBLE_DEVICES", "0"), type=str)
 args = parser.parse_args()
 
 os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
