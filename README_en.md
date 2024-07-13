@@ -108,6 +108,7 @@ MOSS is an open-sourced plugin-augmented conversational language model. `moss-mo
 
 
 ## :robot: Chat with MOSS
+
 ### GPU Requirements
 
 The table below shows the minimal GPU memory required by performing MOSS inference when batch size is 1. Please note that **currently the quantized models do not support model parallism**.
@@ -119,6 +120,7 @@ The table below shows the minimal GPU memory required by performing MOSS inferen
 | Int4     | 7.8GB    | 12GB                   | 26GB                 |
 
 ### Installation
+
 1. Clone this repo to your local/remote machine.
 
 ```bash
@@ -129,17 +131,11 @@ cd MOSS
 2. Create a new conda environment
 
 ```bash
-conda create --name moss python=3.8
+conda env create --file conda-recipe.yaml  # or `mamba env create --file conda-recipe.yaml`
 conda activate moss
 ```
 
-3. Install requirements
-
-```bash
-pip install -r requirements.txt
-```
-
-4.  (Optional) 4/8-bit quantization requirement
+3. (Optional) 4/8-bit quantization requirement
 
 ```bash
 pip install triton
@@ -147,7 +143,7 @@ pip install triton
 
 Note that the version of `torch` and `transformers` should be equal or higher than recommended.
 
-Currently triton only supports Linux and WSL. Please wait for later updates if you are using Windows/MacOS.
+Currently triton only supports Linux and WSL. Please wait for later updates if you are using Windows/macOS.
 
 ### Try MOSS
 

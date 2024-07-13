@@ -1,0 +1,33 @@
+# Create virtual environment with command:
+#
+#   $ conda env create --file conda-recipe.yaml
+#
+
+name: moss
+
+channels:
+  - pytorch
+  - huggingface
+  - nvidia/label/cuda-11.7.1
+  - defaults
+  - conda-forge
+
+dependencies:
+  - python = 3.10
+  - pip
+
+  - pytorch::pytorch >= 1.13
+  - pytorch::pytorch-mutex = *=*cuda*
+  - nvidia/label/cuda-11.7.1::cuda-toolkit = 11.7
+
+  - huggingface::transformers >= 4.25
+  - huggingface::datasets
+  - accelerate
+  - huggingface_hub
+  - sentencepiece
+
+  - matplotlib-base
+  - gradio
+  - streamlit
+  - pip:
+    - mdtex2html

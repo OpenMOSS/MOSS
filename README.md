@@ -112,6 +112,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 
 
 ## :robot: 本地部署
+
 ### 硬件要求
 
 下表提供了一个batch size=1时本地部署MOSS进行推理所需的显存大小。**量化模型暂时不支持模型并行。**
@@ -123,6 +124,7 @@ MOSS是一个支持中英双语和多种插件的开源对话语言模型，`mos
 | Int4     | 7.8GB    | 12GB                   | 26GB                 |
 
 ### 下载安装
+
 1. 下载本仓库内容至本地/远程服务器
 
 ```bash
@@ -130,22 +132,16 @@ git clone https://github.com/OpenLMLab/MOSS.git
 cd MOSS
 ```
 
-2. 创建conda环境
+2. 创建 conda 环境
 
 ```bash
-conda create --name moss python=3.8
+conda env create --file conda-recipe.yaml  # or `mamba env create --file conda-recipe.yaml`
 conda activate moss
 ```
 
-3. 安装依赖
+其中 `torch` 和 `transformers` 版本不建议低于推荐版本。
 
-```bash
-pip install -r requirements.txt
-```
-
-其中`torch`和`transformers`版本不建议低于推荐版本。
-
-目前triton仅支持Linux及WSL，暂不支持Windows及Mac OS，请等待后续更新。
+目前 triton 仅支持 Linux 及 WSL，暂不支持 Windows 及 macOS，请等待后续更新。
 
 ### 使用示例
 
