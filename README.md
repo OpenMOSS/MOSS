@@ -7,7 +7,7 @@
 [![Data License](https://img.shields.io/badge/Data%20License-CC%20BY--NC%204.0-blue.svg)](https://github.com/OpenLMLab/MOSS/blob/main/DATA_LICENSE)
 [![Model License](https://img.shields.io/badge/Model%20License-GNU%20AGPL%203.0-red.svg)](https://github.com/OpenLMLab/MOSS/blob/main/MODEL_LICENSE)
 
-[[中文版](https://github.com/OpenLMLab/MOSS/blob/main/README.md)] [[English](https://github.com/OpenLMLab/MOSS/blob/main/README_en.md)] [[官方微信群](https://github.com/OpenLMLab/MOSS/blob/main/examples/WeChatGroupQR.jpg)]
+[[论文](https://link.springer.com/article/10.1007/s11633-024-1502-8)][[中文版](https://github.com/OpenLMLab/MOSS/blob/main/README.md)] [[English](https://github.com/OpenLMLab/MOSS/blob/main/README_en.md)] [[官方微信群](https://github.com/OpenLMLab/MOSS/blob/main/examples/WeChatGroupQR.jpg)]
 
 ## 目录
 
@@ -544,9 +544,7 @@ bash run.sh
   title    = {MOSS: An Open Conversational Large Language Model},
   year     = {2024},
   issn     = {2731-5398},
-  abstract = {Conversational large language models (LLMs) such as ChatGPT and GPT-4 have recently exhibited remarkable capabilities across various domains, capturing widespread attention from the public. To facilitate this line of research, in this paper, we report the development of MOSS, an open-sourced conversational LLM that contains 16 B parameters and can perform a variety of instructions in multi-turn interactions with humans. The base model of MOSS is pre-trained on large-scale unlabeled English, Chinese, and code data. To optimize the model for dialogue, we generate 1.1 M synthetic conversations based on user prompts collected through our earlier versions of the model API. We then perform preference-aware training on preference data annotated from AI feedback. Evaluation results on real-world use cases and academic benchmarks demonstrate the effectiveness of the proposed approaches. In addition, we present an effective practice to augment MOSS with several external tools. Through the development of MOSS, we have established a complete technical roadmap for large language models from pre-training, supervised fine-tuning to alignment, verifying the feasibility of chatGPT under resource-limited conditions and providing a reference for both the academic and industrial communities. Model weights and code are publicly available at https://github.com/OpenMOSS/MOSS.},
-  doi      = {10.1007/s11633-024-1502-8},
-  url      = {https://doi.org/10.1007/s11633-024-1502-8},
+  url      = {https://github.com/OpenMOSS/MOSS},
 }
 ```
 
