@@ -168,7 +168,7 @@ Below is an example of performing inference of `moss-moon-003-sft`, which can be
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-Hello! How may I assist you today? 
+Hello! How may I assist you today?
 >>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: Recommend five sci-fi films<eoh>\n<|MOSS|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> for k in inputs:
@@ -182,7 +182,7 @@ Sure thing! Here are five great sci-fi films:
 2. The Matrix (1999) - An action-packed movie that explores the idea of reality and free will.
 3. Interstellar (2014) - A space drama that follows a group of astronauts on a mission to save humanity from a comet.
 4. Tron Legacy (2010) - A cyberpunk movie that explores themes of technology, artificial intelligence, and virtual reality.
-5. The Day the Earth Stood Still (1951) - A classic sci-fi movie that tells the story of a young girl who discovers a secret entrance to the Forbidden City. 
+5. The Day the Earth Stood Still (1951) - A classic sci-fi movie that tells the story of a young girl who discovers a secret entrance to the Forbidden City.
 
 I hope these recommendations help you find your next favorite sci-fi film!
 ```
@@ -192,7 +192,7 @@ I hope these recommendations help you find your next favorite sci-fi film!
 You can also perform MOSS inference using the below code snippet on >=2 NVIDIA 3090 GPUs:
 
 ```python
->>> import os 
+>>> import os
 >>> import torch
 >>> from huggingface_hub import snapshot_download
 >>> from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
@@ -213,7 +213,7 @@ You can also perform MOSS inference using the below code snippet on >=2 NVIDIA 3
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-Hello! How may I assist you today? 
+Hello! How may I assist you today?
 >>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: Recommend five sci-fi films<eoh>\n<|MOSS|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
@@ -225,7 +225,7 @@ Sure thing! Here are five great sci-fi films:
 2. The Matrix (1999) - An action-packed movie that explores the idea of reality and free will.
 3. Interstellar (2014) - A space drama that follows a group of astronauts on a mission to save humanity from a comet.
 4. Tron Legacy (2010) - A cyberpunk movie that explores themes of technology, artificial intelligence, and virtual reality.
-5. The Day the Earth Stood Still (1951) - A classic sci-fi movie that tells the story of a young girl who discovers a secret entrance to the Forbidden City. 
+5. The Day the Earth Stood Still (1951) - A classic sci-fi movie that tells the story of a young girl who discovers a secret entrance to the Forbidden City.
 
 I hope these recommendations help you find your next favorite sci-fi film!
 ```

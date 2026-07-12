@@ -166,7 +166,7 @@ pip install -r requirements.txt
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-您好！我是MOSS，有什么我可以帮助您的吗？ 
+您好！我是MOSS，有什么我可以帮助您的吗？
 >>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 推荐五部科幻电影<eoh>\n<|MOSS|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> for k in inputs:
@@ -188,7 +188,7 @@ pip install -r requirements.txt
 您也可以通过以下代码在两张NVIDIA 3090显卡上运行MOSS推理：
 
 ```python
->>> import os 
+>>> import os
 >>> import torch
 >>> from huggingface_hub import snapshot_download
 >>> from transformers import AutoConfig, AutoTokenizer, AutoModelForCausalLM
@@ -209,7 +209,7 @@ pip install -r requirements.txt
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
 >>> response = tokenizer.decode(outputs[0][inputs.input_ids.shape[1]:], skip_special_tokens=True)
 >>> print(response)
-您好！我是MOSS，有什么我可以帮助您的吗？ 
+您好！我是MOSS，有什么我可以帮助您的吗？
 >>> query = tokenizer.decode(outputs[0]) + "\n<|Human|>: 推荐五部科幻电影<eoh>\n<|MOSS|>:"
 >>> inputs = tokenizer(query, return_tensors="pt")
 >>> outputs = model.generate(**inputs, do_sample=True, temperature=0.7, top_p=0.8, repetition_penalty=1.02, max_new_tokens=256)
@@ -352,7 +352,7 @@ Search("黑暗荣耀 主演") =>
 <|MOSS|>: 《黑暗荣耀》的主演包括宋慧乔、李到晛、林智妍、郑星一等人。<sup><|1|></sup><eom>
 ```
 
-其他插件格式请参考[conversation_with_plugins](https://github.com/OpenMOSS/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins). 搜索引擎插件可参照我们开源的[MOSS WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool). 
+其他插件格式请参考[conversation_with_plugins](https://github.com/OpenMOSS/MOSS/tree/main/SFT_data/conversations/conversation_with_plugins). 搜索引擎插件可参照我们开源的[MOSS WebSearchTool](https://github.com/OpenLMLab/MOSS_WebSearchTool).
 
 #### 网页Demo
 
