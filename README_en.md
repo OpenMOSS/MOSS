@@ -522,4 +522,4 @@ The code in this repo is licensed by [Apache 2.0](https://github.com/OpenMOSS/MO
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=OpenMOSS/MOSS&type=Date)](https://star-history.com/#OpenMOSS/MOSS&Date)
+[![Star History Chart](https://star-history.dera.page/svg?repos=OpenMOSS/MOSS&type=Date)](https://star-history.dera.page/#OpenMOSS/MOSS&Date)
