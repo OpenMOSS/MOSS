@@ -522,4 +522,10 @@ The code in this repo is licensed by [Apache 2.0](https://github.com/OpenMOSS/MO
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=OpenMOSS/MOSS&type=Date)](https://star-history.com/#OpenMOSS/MOSS&Date)
+<a href="https://www.star-history.com/?repos=OpenMOSS%2FMOSS&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=OpenMOSS/MOSS&type=date&theme=dark&legend=top-left&sealed_token=f07PE6YcCuTjc4qRgfmwn-iwIj7W2HPn5HmKhQXhlUnFzQoV3NmircWtBxIbFbF1eaoYmZRQp2llL0YfEwM-NJebe1qKOVAX9HuXQMpCpFBuTC3tmS0751-ymPKfWrQeNVPsTUdNZrbtwI4aJMTPtPhbJXOOQyFDRGqt4aUqP0UloTuNEq0x4noixPYM" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=OpenMOSS/MOSS&type=date&legend=top-left&sealed_token=f07PE6YcCuTjc4qRgfmwn-iwIj7W2HPn5HmKhQXhlUnFzQoV3NmircWtBxIbFbF1eaoYmZRQp2llL0YfEwM-NJebe1qKOVAX9HuXQMpCpFBuTC3tmS0751-ymPKfWrQeNVPsTUdNZrbtwI4aJMTPtPhbJXOOQyFDRGqt4aUqP0UloTuNEq0x4noixPYM" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=OpenMOSS/MOSS&type=date&legend=top-left&sealed_token=f07PE6YcCuTjc4qRgfmwn-iwIj7W2HPn5HmKhQXhlUnFzQoV3NmircWtBxIbFbF1eaoYmZRQp2llL0YfEwM-NJebe1qKOVAX9HuXQMpCpFBuTC3tmS0751-ymPKfWrQeNVPsTUdNZrbtwI4aJMTPtPhbJXOOQyFDRGqt4aUqP0UloTuNEq0x4noixPYM" />
+ </picture>
+</a>
