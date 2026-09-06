@@ -9,6 +9,12 @@
 
 [[论文](https://link.springer.com/article/10.1007/s11633-024-1502-8)][[中文版](https://github.com/OpenMOSS/MOSS/blob/main/README.md)] [[English](https://github.com/OpenMOSS/MOSS/blob/main/README_en.md)] [[官方微信群](https://github.com/OpenMOSS/MOSS/blob/main/examples/WeChatGroupQR.jpg)]
 
+**MOSS 是支持中英双语对话与工具调用的开源语言模型。本仓库提供 MOSS-003 系列模型、对话数据、部署与微调代码。**
+
+**从这里开始：** [模型下载](#模型) · [硬件要求](#硬件要求) · [本地运行](#robot-本地部署) · [微调](#fire-微调)
+
+查看 OpenMOSS 的更多项目：[MOSS-TTS](https://github.com/OpenMOSS/MOSS-TTS) · [MOSS-VL](https://github.com/OpenMOSS/MOSS-VL) · [MOVA](https://github.com/OpenMOSS/MOVA) · [OpenMOSS](https://github.com/OpenMOSS).
+
 ## 目录
 
 - [开源清单](#spiral_notepad-开源清单)

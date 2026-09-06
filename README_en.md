@@ -9,6 +9,12 @@
 
 [[中文版](https://github.com/OpenMOSS/MOSS/blob/main/README.md)] [[English](https://github.com/OpenMOSS/MOSS/blob/main/README_en.md)]
 
+**MOSS is an open-source conversational language model with Chinese and English dialogue and tool use. This repository provides the MOSS-003 models, conversation datasets, deployment, and fine-tuning code.**
+
+**Start here:** [Model weights](#models) · [Hardware requirements](#gpu-requirements) · [Run locally](#robot-chat-with-moss) · [Fine-tuning](#fire-fine-tuning-moss)
+
+Explore more from OpenMOSS: [MOSS-TTS](https://github.com/OpenMOSS/MOSS-TTS) · [MOSS-VL](https://github.com/OpenMOSS/MOSS-VL) · [MOVA](https://github.com/OpenMOSS/MOVA) · [OpenMOSS](https://github.com/OpenMOSS).
+
 ## Table of Contents
 
 - [Open-source list](#spiral_notepad-open-source-list)
