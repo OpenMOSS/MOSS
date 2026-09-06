@@ -287,7 +287,7 @@ if __name__ == '__main__':
     parser.add_argument('--eval_bsz_per_gpu', default=4, type=int)
     parser.add_argument('--weight_decay', default=0.1, type=float)
     parser.add_argument('--learning_rate', default=9e-6, type=float)
-    parser.add_argument('--warmup_rates', default=0.05, type=int)
+    parser.add_argument('--warmup_rates', default=0.05, type=float)
     parser.add_argument('--n_epochs', default=2, type=int)
 
     # Other Args
