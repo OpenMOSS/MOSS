@@ -733,6 +733,17 @@ class MossForCausalLM(MossPreTrainedModel):
         )
 
     def quantize(self, wbits, groupsize):
-        from .quantization import quantize_with_gptq
-        return quantize_with_gptq(self, wbits, groupsize)
+        from auto_gptq.modeling._utils import make_quant, find_layers
+        try:
+            import triton
+            use_triton = True
+        except ImportError:
+            use_triton = False
 
+        layers = find_layers(self)
+        for name in ["lm_head"]:
+            if name in layers:
+                del layers[name]
+        make_quant(self, layers, wbits, groupsize, use_triton=use_triton)
+
+        return self
