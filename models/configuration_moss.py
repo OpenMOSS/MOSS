@@ -19,7 +19,7 @@ class MossConfig(PretrainedConfig):
     Args:
         vocab_size (`int`, *optional*, defaults to 107008):
             Vocabulary size of the Moss model. Defines the number of different tokens that can be represented by the
-            `inputs_ids` passed when calling [`MossModel`].
+            `input_ids` passed when calling [`MossModel`].
         n_positions (`int`, *optional*, defaults to 2048):
             The maximum sequence length that this model might ever be used with. Typically set this to something large
             just in case (e.g., 512 or 1024 or 2048).

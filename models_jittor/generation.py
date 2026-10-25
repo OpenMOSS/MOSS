@@ -45,7 +45,7 @@ def greedy_search(model, input_str, tokenizer, max_gen_len,
             
         outputs = model(input_ids, past_key_values=past_key_values,
                         attention_mask=attention_mask)
-        # caculate probs
+        # calculate probs
         next_token_logits = outputs['logits'][:, -1, :].float()
         next_tokens = jt.argmax(next_token_logits, dim=-1)[0]
 

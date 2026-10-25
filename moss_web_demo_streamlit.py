@@ -36,7 +36,7 @@ st.set_page_config(
 
 st.title(':robot_face: {}'.format(args.model_name.split('/')[-1]))
 st.sidebar.header("Parameters")
-temperature = st.sidebar.slider("Temerature", min_value=0.0, max_value=1.0, value=0.7)
+temperature = st.sidebar.slider("Temperature", min_value=0.0, max_value=1.0, value=0.7)
 max_length = st.sidebar.slider('Maximum response length', min_value=256, max_value=1024, value=512)
 length_penalty = st.sidebar.slider('Length penalty', min_value=-2.0, max_value=2.0, value=1.0)
 repetition_penalty = st.sidebar.slider('Repetition penalty', min_value=1.0, max_value=1.1, value=1.02)
